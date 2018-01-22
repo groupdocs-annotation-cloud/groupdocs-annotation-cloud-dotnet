@@ -1,39 +1,97 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <metadata>
-        <!-- The identifier that must be unique within the hosting gallery -->
-        <id>$id$</id>
-        <title>Swagger Library</title>
+<package>
+  <metadata>
+    <id>GroupDocs.Annotation-Cloud</id>
+    <version>17.12.0</version>
+    <title>GroupDocs.Annotation Cloud SDK for .NET</title>
+    <authors>GroupDocs</authors>
+    <owners>GroupDocs</owners>
+    <licenseUrl>https://github.com/groupdocs-annotation-cloud/groupdocs-annotation-cloud-dotnet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/groupdocs-annotation-cloud/groupdocs-annotation-cloud-dotnet</projectUrl>
+    <iconUrl>https://www.groupdocs.cloud/templates/groupdocs/images/product-logos/groupdocs-annotation-cloud.png</iconUrl>    
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+    Manipulate Document Annotations in Any Platform. 
+    Add interactive and advanced annotation features to documents in any application, using our true REST APIs.
+    </description>
+    <releaseNotes>
+       GroupDocs.Annotation for Cloud is a REST API for manipulating and exporting annotations of documents with different formats in the cloud.
+       
+       Annotation.Words supported:
+          * doc
+          * docm 
+          * docx 
+          * dot
+          * dotm
+          * dotx 
+          * rtf
+          * odt 
+          * ott 
+          * txt
+       
+       Annotation.Cells supported:
+          * xls
+          * xlsx
 
-        <!-- The package version number that is used when resolving dependencies -->
-        <version>$version$</version>
+        Annotation.Slides supported:
+          * ppt
+          * pptx
+          * ppsx
+          * odp
+          * otp
+        
+        Annotation.Pdf supported:
+          * pdf
+        
+        Annotation.Diagram supported:
+          * vssx
+          * vss
+          * vssm
+          * vdx
+          * vsd
+          * vsdx
+          * vsdm
+          * vstm
+          * vsx
+          * vtx
+        
+        Annotation.Imaging supported:
+          * bmp
+          * png
+          * jpg
+          * jpeg
+          * tiff
+          * tif
+          * gif
+        
+        Annotation.Email supported:
+          * eml
+          * emlx
+          * msg
+          * mhtml
+        
+        GroupDocs.Annotation provides features for export/import annotations into/from files, additionally to possibility to save files in supported formats with following types of annotations: 
 
-        <!-- Authors contain text that appears directly on the gallery -->
-        <authors>$author$</authors>
+        * Text annotations:
+            * Text annotation – add comments to selected text.
+            * Text replacement – highlight which text should be replaced with what.
+            * Text redaction – hide confidential text.
+            * Strikeout/underline – highlight text with strikethroughs/underlines.
+            * Typewriter – add sticky notes with rich text.
 
-        <!-- Owners are typically nuget.org identities that allow gallery
-             users to earily find other packages by the same owners.  -->
-        <owners>$author$</owners>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <developmentDependency>false</developmentDependency>
-
-        <!-- The description can be used in package manager UI. Note that the
-             nuget.org gallery uses information you add in the portal. -->
-        <description>A library generated from a Swagger doc</description>
-
-        <!-- Dependencies are automatically installed when the package is installed -->
-        <dependencies>
-
-            <dependency id="NewtonSoft.Json" version="10.0.3" />
-            <dependency id="RestSharp" version="105.1.0" />
-
-        </dependencies>
-    </metadata>
-    <files>
-
-        <!-- A readme.txt will be displayed when the package is installed -->
-        <file src="..\..\README.md" target="" />
-        <file src="..\..\docs\**\*.*" target="docs" />
-
-    </files>
+        * Figure annotations:                                               
+            * Area annotation – add notes to an area highlighted with a rectangle.
+            * Point annotation – add notes to any point in the document.
+            * Area redaction – hide confidential parts of an image or text.
+            * Polyline – draw freehand lines and shapes.
+            * Pointer/arrow – drop arrows pointing to an object.
+            * Watermark – create text-based watermark overlays.
+            * Distance – measure the distance between any objects in a document.
+    </releaseNotes>    
+    <copyright>Aspose 2001-2018. All Rights Reserved.</copyright>
+    <tags>Document-Annotation Image-Annotation HTML5-Annotation Annotator Annotate Annotation Markup Comments Notes PDF Image HTML5</tags>    
+	<dependencies>
+      <dependency id="Newtonsoft.Json" version="10.0.3" />
+    </dependencies>
+  </metadata>
 </package>
