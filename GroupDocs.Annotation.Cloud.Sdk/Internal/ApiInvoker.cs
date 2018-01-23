@@ -23,8 +23,6 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using GroupDocs.Annotation.Cloud.Sdk.Client;
-
 namespace GroupDocs.Annotation.Cloud.Sdk.Internal
 {
     using System;
