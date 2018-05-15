@@ -10,6 +10,7 @@ using NUnit.Framework;
 using GroupDocs.Annotation.Cloud.Sdk.Api;
 using GroupDocs.Annotation.Cloud.Sdk.Model;
 using GroupDocs.Annotation.Cloud.Sdk.Model.Requests;
+using GroupDocs.Annotation.Cloud.Sdk.Model.Responses;
 
 namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
 {
@@ -49,7 +50,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         {
             GetImportRequest request = new GetImportRequest("one-page-annotated.pdf", "gfc-testdata/testsdata/groupdocs.annotation");
             var response = _annotationApi.GetImport(request);
-            Assert.IsInstanceOf<List<AnnotationInfo>>(response, "response is List<AnnotationInfo>");
+            Assert.IsInstanceOf<ResponseWrapper>(response, "response is ResponseWrapper");
         }
         /// <summary>
         /// Test PutExport

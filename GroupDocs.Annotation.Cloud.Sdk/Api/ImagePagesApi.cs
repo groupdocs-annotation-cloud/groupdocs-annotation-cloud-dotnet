@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ImagePagesApi.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -276,7 +276,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DeletePagesRequest.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -339,7 +339,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetPageRequest.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -409,7 +409,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetPagesRequest.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -472,7 +472,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PostPagesRequest.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy

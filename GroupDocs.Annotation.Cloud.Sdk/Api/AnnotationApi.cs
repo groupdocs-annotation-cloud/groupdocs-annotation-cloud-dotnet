@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="AnnotationApi.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -22,6 +22,8 @@
 //  SOFTWARE.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using GroupDocs.Annotation.Cloud.Sdk.Model.Responses;
 
 namespace GroupDocs.Annotation.Cloud.Sdk.Api
 {
@@ -126,8 +128,8 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         /// Extracts annotations from document. 
         /// </summary>
         /// <param name="request">Request. <see cref="GetImportRequest" /></param> 
-        /// <returns><see cref="List<AnnotationInfo>"/></returns>            
-        public List<AnnotationInfo> GetImport(GetImportRequest request)
+        /// <returns><see cref="ResponseWrapper"/></returns>            
+        public ResponseWrapper GetImport(GetImportRequest request)
         {
             // verify the required parameter 'name' is set
             if (request.Name == null) 
@@ -155,7 +157,8 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
                     null);
                 if (response != null)
                 {
-                    return (List<AnnotationInfo>)SerializationHelper.Deserialize(response, typeof(List<AnnotationInfo>));
+                    var result = (List<AnnotationInfo>)SerializationHelper.Deserialize(response, typeof(List<AnnotationInfo>));
+                    return new ResponseWrapper() { ResponeAnnotationInfos = result };
                 }
                     
                 return null;

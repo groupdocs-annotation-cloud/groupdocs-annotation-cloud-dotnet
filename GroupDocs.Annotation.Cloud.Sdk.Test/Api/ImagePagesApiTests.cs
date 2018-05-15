@@ -21,7 +21,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
     /// Please update the test case below to test the API endpoint.
     /// </remarks>
     [TestFixture]
-    public class ImagePagesApiTests: TestsSetup
+    public class ImagePagesApiTests : TestsSetup
     {
         /// <summary>
         /// Test an instance of ImagePagesApi
@@ -41,26 +41,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
             var response = _imagePagesApi.PostPages(request);
             Assert.IsInstanceOf<ImagePages>(response, "response is ImagePages");
         }
-        /// <summary>
-        /// Test GetPage
-        /// </summary>
-        [Test]
-        public void GetPageTest()
-        {
-            GetPageRequest request = new GetPageRequest("one-page.pdf", 0, "gfc-testdata/testsdata/groupdocs.annotation");
-            var response = _imagePagesApi.GetPage(request);
-            Assert.IsInstanceOf<ImagePage>(response, "response is ImagePage");
-        }
-        /// <summary>
-        /// Test GetPages
-        /// </summary>
-        [Test]
-        public void GetPagesTest()
-        {
-            GetPagesRequest request = new GetPagesRequest("one-page.pdf", "gfc-testdata/testsdata/groupdocs.annotation");
-            var response = _imagePagesApi.GetPages(request);
-            Assert.IsInstanceOf<ImagePages>(response, "response is ImagePages");
-        }
+
         /// <summary>
         /// Test DeletePages
         /// </summary>
@@ -70,6 +51,27 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
             DeletePagesRequest request = new DeletePagesRequest("one-page.pdf", "gfc-testdata/testsdata/groupdocs.annotation");
             var response = _imagePagesApi.DeletePages(request);
             Assert.IsInstanceOf<System.IO.Stream>(response, "response is System.IO.Stream");
+        }
+
+        /// <summary>
+        /// Test GetPage
+        /// </summary>
+        [Test]
+        public void TestGetPage()
+        {
+            GetPageRequest request = new GetPageRequest("one-page.pdf", 0, "gfc-testdata/testsdata/groupdocs.annotation");
+            var response = _imagePagesApi.GetPage(request);
+            Assert.IsInstanceOf<ImagePage>(response, "response is ImagePage");
+        }
+        /// <summary>
+        /// Test GetPages
+        /// </summary>
+        [Test]
+        public void TestGetPages()
+        {
+            GetPagesRequest request = new GetPagesRequest("one-page.pdf", "gfc-testdata/testsdata/groupdocs.annotation");
+            var response = _imagePagesApi.GetPages(request);
+            Assert.IsInstanceOf<ImagePages>(response, "response is ImagePages");
         }
     }
 

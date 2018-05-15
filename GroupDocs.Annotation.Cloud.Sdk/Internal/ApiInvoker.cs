@@ -53,7 +53,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Internal
             string body = null,
             Dictionary<string, string> headerParams = null,
             Dictionary<string, object> formParams = null,
-            string contentType = "application/json")
+            string contentType = "application/x-www-form-urlencoded")
         {
             return this.InvokeInternal(path, method, false, body, headerParams, formParams, contentType) as string;
         }
@@ -64,7 +64,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Internal
             string body,
             Dictionary<string, string> headerParams,
             Dictionary<string, object> formParams,
-            string contentType = "application/json")
+            string contentType = "application/x-www-form-urlencoded")
         {
             return (Stream)this.InvokeInternal(path, method, true, body, headerParams, formParams, contentType);
         }
@@ -218,9 +218,9 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Internal
 
         private WebRequest PrepareRequest(string path, string method, Dictionary<string, object> formParams, Dictionary<string, string> headerParams, string body, string contentType)
         {
-            var client = WebRequest.Create(path);
+            HttpWebRequest client = (HttpWebRequest)WebRequest.Create(path);
             client.Method = method;
-
+            client.Accept = "application/json";
             byte[] formData = null;
             if (formParams.Count > 0)
             {
@@ -241,6 +241,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Internal
             else
             {
                 client.ContentType = contentType;
+                
             }
 
             foreach (var headerParamsItem in headerParams)
@@ -248,13 +249,13 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Internal
                 client.Headers.Add(headerParamsItem.Key, headerParamsItem.Value);
             }
 
-            foreach (var defaultHeaderMapItem in this.defaultHeaderMap)
-            {
-                if (!headerParams.ContainsKey(defaultHeaderMapItem.Key))
-                {
-                    client.Headers.Add(defaultHeaderMapItem.Key, defaultHeaderMapItem.Value);
-                }
-            }
+            //foreach (var defaultHeaderMapItem in this.defaultHeaderMap)
+            //{
+            //    if (!headerParams.ContainsKey(defaultHeaderMapItem.Key))
+            //    {
+            //        client.Headers.Add(defaultHeaderMapItem.Key, defaultHeaderMapItem.Value);
+            //    }
+            //}
 
             MemoryStream streamToSend = null;
             try

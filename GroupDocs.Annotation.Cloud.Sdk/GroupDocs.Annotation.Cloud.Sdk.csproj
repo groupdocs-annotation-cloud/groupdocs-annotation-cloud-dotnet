@@ -19,6 +19,7 @@ OpenAPI spec version: 1.0
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -96,6 +97,7 @@ OpenAPI spec version: 1.0
     <Compile Include="Model\Responses\FileExist.cs" />
     <Compile Include="Model\Responses\FileExistResponse.cs" />
     <Compile Include="Model\Responses\ResponseMessage.cs" />
+    <Compile Include="Model\Responses\ResponseWrapper.cs" />
     <Compile Include="Model\RowInfo.cs" />
     <Compile Include="Model\ValueType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,4 +106,11 @@ OpenAPI spec version: 1.0
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
 </Project>
