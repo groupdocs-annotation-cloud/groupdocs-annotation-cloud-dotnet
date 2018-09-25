@@ -57,7 +57,7 @@ All GroupDocs.Annotation for Cloud SDKs are licensed under [MIT License](LICENSE
 
 # Resources
 + [**Website**](https://www.groupdocs.cloud)
-+ [**Product Home**](https://products.groupdocs.cloud/annotation/cloud)
++ [**Product Home**](https://products.groupdocs.cloud/annotation)
 + [**Documentation**](https://docs.groupdocs.cloud/display/annotationcloud/Home)
 + [**Free Support Forum**](https://forum.groupdocs.cloud/c/annotation)
-+ [**Blog**](https://blog.groupdocs.cloud/category/groupdocs-annotation-cloud-product-family/)
++ [**Blog**](https://blog.groupdocs.cloud/category/annotation)
