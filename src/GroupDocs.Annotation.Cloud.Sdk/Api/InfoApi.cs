@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="InfoApi.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,7 +27,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 {
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
-    using System.IO;
     using GroupDocs.Annotation.Cloud.Sdk.Client;
     using GroupDocs.Annotation.Cloud.Sdk.Client.RequestHandlers;
     using GroupDocs.Annotation.Cloud.Sdk.Model;
@@ -134,7 +133,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetInfoRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="AnnotateApi.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,7 +27,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 {
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
-    using System.IO;
     using GroupDocs.Annotation.Cloud.Sdk.Client;
     using GroupDocs.Annotation.Cloud.Sdk.Client.RequestHandlers;
     using GroupDocs.Annotation.Cloud.Sdk.Model;
@@ -165,35 +164,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieves PDF version of document 
-        /// </summary>
-        /// <param name="request">Request. <see cref="GetPdfRequest" /></param>
-        /// <returns><see cref="System.IO.Stream"/></returns>
-        public System.IO.Stream GetPdf(GetPdfRequest request)
-        {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
-            {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling GetPdf");
-            }
-
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/annotation/pdf";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            
-            return this.apiInvoker.InvokeBinaryApi(
-                    resourcePath, 
-                    "GET", 
-                    null, 
-                    null, 
-                    null);
-        }
-
-        /// <summary>
         /// Adds annotations to document 
         /// </summary>
         /// <param name="request">Request. <see cref="PostAnnotationsRequest" /></param>
@@ -230,7 +200,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DeleteAnnotationsRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -287,7 +257,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetExportRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -379,7 +349,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetImportRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -435,65 +405,8 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="GetPdfRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
-// </copyright>
-// <summary>
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-// 
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-// 
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests 
-{
-    using System.Collections.Generic;
-    using GroupDocs.Annotation.Cloud.Sdk.Model; 
-
-    /// <summary>
-    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.GetPdf" /> operation.
-    /// </summary>  
-    public class GetPdfRequest  
-    {
-          /// <summary>
-          /// Initializes a new instance of the <see cref="GetPdfRequest"/> class.
-          /// </summary>        
-          public GetPdfRequest()
-          {
-          }
-
-          /// <summary>
-          /// Initializes a new instance of the <see cref="GetPdfRequest"/> class.
-          /// </summary>
-          /// <param name="filePath">Path to document in storage</param>
-          public GetPdfRequest(string filePath)             
-          {
-              this.filePath = filePath;
-          }
-          
-          /// <summary>
-          /// Path to document in storage
-          /// </summary>  
-          public string filePath { get; set; }
-    }
-}
-// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PostAnnotationsRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PageInfo.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,16 +54,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public int? Height { get; set; }
 
         /// <summary>
-        /// Indicates whether page is visible or not
-        /// </summary>  
-        public bool? IsVisible { get; set; }
-
-        /// <summary>
-        /// Gets or sets the list of text rows
-        /// </summary>  
-        public List<RowInfo> Rows { get; set; }
-
-        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,8 +64,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
           sb.Append("  Number: ").Append(this.Number).Append("\n");
           sb.Append("  Width: ").Append(this.Width).Append("\n");
           sb.Append("  Height: ").Append(this.Height).Append("\n");
-          sb.Append("  IsVisible: ").Append(this.IsVisible).Append("\n");
-          sb.Append("  Rows: ").Append(this.Rows).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

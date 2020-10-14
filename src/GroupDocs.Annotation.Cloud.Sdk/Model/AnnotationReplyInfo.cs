@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="AnnotationReplyInfo.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,12 +41,12 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         /// <summary>
         /// Gets or sets the unique identifier
         /// </summary>  
-        public string Guid { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the user's unique identifier
         /// </summary>  
-        public string UserGuid { get; set; }
+        public int? UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the user's name
@@ -61,7 +61,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         /// <summary>
         /// Gets or sets the message
         /// </summary>  
-        public string Message { get; set; }
+        public string Comment { get; set; }
 
         /// <summary>
         /// Gets or sets the reply time
@@ -71,7 +71,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         /// <summary>
         /// Gets or sets the parent reply unique identifier
         /// </summary>  
-        public string ParentReplyGuid { get; set; }
+        public int? ParentReplyId { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -81,13 +81,13 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         {
           var sb = new StringBuilder();
           sb.Append("class AnnotationReplyInfo {\n");
-          sb.Append("  Guid: ").Append(this.Guid).Append("\n");
-          sb.Append("  UserGuid: ").Append(this.UserGuid).Append("\n");
+          sb.Append("  Id: ").Append(this.Id).Append("\n");
+          sb.Append("  UserId: ").Append(this.UserId).Append("\n");
           sb.Append("  UserName: ").Append(this.UserName).Append("\n");
           sb.Append("  UserEmail: ").Append(this.UserEmail).Append("\n");
-          sb.Append("  Message: ").Append(this.Message).Append("\n");
+          sb.Append("  Comment: ").Append(this.Comment).Append("\n");
           sb.Append("  RepliedOn: ").Append(this.RepliedOn).Append("\n");
-          sb.Append("  ParentReplyGuid: ").Append(this.ParentReplyGuid).Append("\n");
+          sb.Append("  ParentReplyId: ").Append(this.ParentReplyId).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

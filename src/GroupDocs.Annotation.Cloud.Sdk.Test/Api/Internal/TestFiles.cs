@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="TestFiles.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,45 +30,45 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api.Internal
     public static class TestFiles
     {
         #region Cells
-        public static readonly TestFile OnePageCells = new TestFile("one-page.xlsx", "cells");
-        public static readonly TestFile OnePagePasswordCells = new TestFile("one-page-password.xlsx", "cells");
-        public static readonly TestFile TenPagesCells = new TestFile("ten-pages.xlsx", "cells");
+        public static readonly TestFile OnePageCells = new TestFile("one-page.xlsx", "cells\\");
+        public static readonly TestFile OnePagePasswordCells = new TestFile("one-page-password.xlsx", "cells\\");
+        public static readonly TestFile TenPagesCells = new TestFile("ten-pages.xlsx", "cells\\");
         #endregion
 
         #region Diagram
-        public static readonly TestFile OnePageDiagram = new TestFile("one-page.vsd", "diagram");
-        public static readonly TestFile TenPagesDiagram = new TestFile("ten-pages.vsd", "diagram");
+        public static readonly TestFile OnePageDiagram = new TestFile("one-page.vsd", "diagram\\");
+        public static readonly TestFile TenPagesDiagram = new TestFile("ten-pages.vsd", "diagram\\");
         #endregion
 
         #region Email
-        public static readonly TestFile OnePageEmail = new TestFile("one-page.emlx", "email");
+        public static readonly TestFile OnePageEmail = new TestFile("one-page.emlx", "email\\");
         #endregion
 
         #region Html
-        public static readonly TestFile OnePageHtml = new TestFile("one-page.html", "html");
+        public static readonly TestFile OnePageHtml = new TestFile("one-page.html", "html\\");
         #endregion
 
         #region Images
-        public static readonly TestFile OnePageBmp = new TestFile("one-page.bmp", "images");
-        public static readonly TestFile OnePagePng = new TestFile("one-page.png", "images");
+        public static readonly TestFile OnePageBmp = new TestFile("one-page.bmp", "images\\");
+        public static readonly TestFile OnePagePng = new TestFile("one-page.png", "images\\");
         #endregion
 
         #region Pdf
-        public static readonly TestFile OnePagePdf = new TestFile("one-page.pdf", "pdf");
-        public static readonly TestFile OnePagePasswordPdf = new TestFile("one-page-password.pdf", "pdf");
-        public static readonly TestFile TenPagesPdf = new TestFile("ten-pages.pdf", "pdf");
+        public static readonly TestFile OnePagePdf = new TestFile("one-page.pdf", "pdf\\");
+        public static readonly TestFile OnePagePasswordPdf = new TestFile("one-page-password.pdf", "pdf\\");
+        public static readonly TestFile TenPagesPdf = new TestFile("ten-pages.pdf", "pdf\\");
         #endregion
 
         #region Slides
-        public static readonly TestFile OnePageSlides = new TestFile("one-page.pptx", "slides");
-        public static readonly TestFile OnePagePasswordSlides = new TestFile("one-page-password.pptx", "slides");
-        public static readonly TestFile TenPagesSlides = new TestFile("ten-pages.pptx", "slides");
+        public static readonly TestFile OnePageSlides = new TestFile("one-page.pptx", "slides\\");
+        public static readonly TestFile OnePagePasswordSlides = new TestFile("one-page-password.pptx", "slides\\");
+        public static readonly TestFile TenPagesSlides = new TestFile("ten-pages.pptx", "slides\\");
         #endregion
 
         #region Words
-        public static readonly TestFile OnePageWords = new TestFile("one-page.docx", "words");
-        public static readonly TestFile OnePagePasswordWords = new TestFile("one-page-password.docx", "words");
-        public static readonly TestFile TenPagesWords = new TestFile("ten-pages.docx", "words");
+        public static readonly TestFile OnePageWords = new TestFile("one-page.docx", "words\\");
+        public static readonly TestFile OnePagePasswordWords = new TestFile("one-page-password.docx", "words\\");
+        public static readonly TestFile TenPagesWords = new TestFile("ten-pages.docx", "words\\");
         #endregion
 
         public static IEnumerable<TestFile> TestFilesList

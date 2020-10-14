@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,19 +38,22 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TestCase(@"pdf\one-page.pdf")]
         [TestCase(@"slides\one-page.pptx")]
         [TestCase(@"words\one-page.docx")]
-        [TestCase(@"cells\ten-pages.xlsx", 8, 0)]
-        [TestCase(@"diagram\ten-pages.vsd", 3, 5)]
-        [TestCase(@"pdf\ten-pages.pdf", 8, 0)]
-        [TestCase(@"slides\ten-pages.pptx", 3, 5)]
-        [TestCase(@"words\ten-pages.docx", 0, 10)]
-        [TestCase(@"cells\one-page-password.xlsx", 0, 0, null, false, false, null, "password", Ignore = "")]
-        [TestCase(@"pdf\one-page-password.pdf", 0, 0, null, false, false, null, "password")]
-        [TestCase(@"slides\one-page-password.pptx", 0, 0, null, false, false, null, "password", Ignore = "")]
-        [TestCase(@"words\one-page-password.docx", 0, 0, null, false, false, null, "password", Ignore = "")]
+        [TestCase(@"cells\ten-pages.xlsx", "JPEG")]
+        [TestCase(@"diagram\ten-pages.vsd")]
+        [TestCase(@"pdf\ten-pages.pdf")]
+        [TestCase(@"slides\ten-pages.pptx")]
+        [TestCase(@"words\ten-pages.docx")]
+        [TestCase(@"cells\one-page-password.xlsx", null, null, false, 0, 0, false, "password")]
+        [TestCase(@"pdf\one-page-password.pdf", "PNG", null, false, 0, 0, false, "password")]
+        [TestCase(@"slides\one-page-password.pptx", null, null, false, 0, 0, false, "password")]
+        [TestCase(@"words\one-page-password.docx", null, null, false, 0, 0, false, "password")]
         [Order(0)]
-        public void TestGetPages(string filePath, int countPagesToConvert = 0, int pageNumber = 0, List<int?> pageNumbersToConvert = null, bool withoutAnnotations = false, bool enableCaching = false, string cacheStoragePath = null, string password = null)
+        public void TestGetPages(string filePath, string format=null, List<int?> pageNumbersToConvert = null,
+            bool withoutAnnotations = false, int width = 0, int height = 0,
+            bool renderComments = false, string password = null)
         {
-            GetPagesRequest request = new GetPagesRequest(filePath, countPagesToConvert, pageNumber, pageNumbersToConvert, withoutAnnotations, enableCaching, cacheStoragePath, password);
+            var request = new GetPagesRequest(filePath, pageNumbersToConvert, format, width, height,
+                withoutAnnotations, renderComments, password);
             var imagePages = PreviewApi.GetPages(request);
             Assert.NotNull(imagePages);
         }
@@ -67,10 +70,10 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TestCase(@"pdf\ten-pages.pdf")]
         [TestCase(@"slides\ten-pages.pptx")]
         [TestCase(@"words\ten-pages.docx")]
-        [TestCase(@"cells\one-page-password.xlsx", Ignore = "")]
+        [TestCase(@"cells\one-page-password.xlsx")]
         [TestCase(@"pdf\one-page-password.pdf")]
-        [TestCase(@"slides\one-page-password.pptx", Ignore = "")]
-        [TestCase(@"words\one-page-password.docx", Ignore = "")]
+        [TestCase(@"slides\one-page-password.pptx")]
+        [TestCase(@"words\one-page-password.docx")]
         [Order(2)]
         public void TestDeletePages(string filePath)
         {

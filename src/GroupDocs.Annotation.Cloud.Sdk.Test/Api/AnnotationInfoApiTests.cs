@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,9 +42,9 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TestCase(@"pdf\ten-pages.pdf")]
         [TestCase(@"slides\ten-pages.pptx")]
         [TestCase(@"words\ten-pages.docx")]
-        [TestCase(@"cells\one-page-password.xlsx", "password", Ignore = "")]
+        [TestCase(@"cells\one-page-password.xlsx", "password")]
         [TestCase(@"pdf\one-page-password.pdf", "password")]
-        [TestCase(@"slides\one-page-password.pptx", "password", Ignore = "")]
+        [TestCase(@"slides\one-page-password.pptx", "password")]
         [TestCase(@"words\one-page-password.docx", "password")]
         public void TestGetInfo(string filePath, string password = null)
         {

@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PreviewApi.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,7 +27,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 {
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
-    using System.IO;
     using GroupDocs.Annotation.Cloud.Sdk.Client;
     using GroupDocs.Annotation.Cloud.Sdk.Client.RequestHandlers;
     using GroupDocs.Annotation.Cloud.Sdk.Model;
@@ -114,12 +113,12 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPagesToConvert", request.countPagesToConvert);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumber", request.pageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumbersToConvert", request.pageNumbersToConvert);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.width);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.height);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "withoutAnnotations", request.withoutAnnotations);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableCaching", request.enableCaching);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "cacheStoragePath", request.cacheStoragePath);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.renderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.password);
             
             var response = this.apiInvoker.InvokeApi(
@@ -140,7 +139,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DeletePagesRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -197,7 +196,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetPagesRequest.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -241,22 +240,22 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
           /// Initializes a new instance of the <see cref="GetPagesRequest"/> class.
           /// </summary>
           /// <param name="filePath">Document path in storage</param>
-          /// <param name="countPagesToConvert">The count pages to convert</param>
-          /// <param name="pageNumber">The start page number</param>
           /// <param name="pageNumbersToConvert">The list of page numbers to convert</param>
+          /// <param name="format">Preview format: \&quot;PNG\&quot; (default), \&quot;JPEG\&quot;, or \&quot;BMP\&quot;</param>
+          /// <param name="width">Preview image width</param>
+          /// <param name="height">Preview image height</param>
           /// <param name="withoutAnnotations">If true returns specific pages without annotations</param>
-          /// <param name="enableCaching">Indicates whether to use previously cached document or not</param>
-          /// <param name="cacheStoragePath">The cache storage path</param>
+          /// <param name="renderComments">Render comments (false by default)</param>
           /// <param name="password">Source document opening password</param>
-          public GetPagesRequest(string filePath, int? countPagesToConvert = null, int? pageNumber = null, List<int?> pageNumbersToConvert = null, bool? withoutAnnotations = null, bool? enableCaching = null, string cacheStoragePath = null, string password = null)             
+          public GetPagesRequest(string filePath, List<int?> pageNumbersToConvert = null, string format = null, int? width = null, int? height = null, bool? withoutAnnotations = null, bool? renderComments = null, string password = null)             
           {
               this.filePath = filePath;
-              this.countPagesToConvert = countPagesToConvert;
-              this.pageNumber = pageNumber;
               this.pageNumbersToConvert = pageNumbersToConvert;
+              this.format = format;
+              this.width = width;
+              this.height = height;
               this.withoutAnnotations = withoutAnnotations;
-              this.enableCaching = enableCaching;
-              this.cacheStoragePath = cacheStoragePath;
+              this.renderComments = renderComments;
               this.password = password;
           }
           
@@ -266,19 +265,24 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
           public string filePath { get; set; }
           
           /// <summary>
-          /// The count pages to convert
-          /// </summary>  
-          public int? countPagesToConvert { get; set; }
-          
-          /// <summary>
-          /// The start page number
-          /// </summary>  
-          public int? pageNumber { get; set; }
-          
-          /// <summary>
           /// The list of page numbers to convert
           /// </summary>  
           public List<int?> pageNumbersToConvert { get; set; }
+          
+          /// <summary>
+          /// Preview format: \"PNG\" (default), \"JPEG\", or \"BMP\"
+          /// </summary>  
+          public string format { get; set; }
+          
+          /// <summary>
+          /// Preview image width
+          /// </summary>  
+          public int? width { get; set; }
+          
+          /// <summary>
+          /// Preview image height
+          /// </summary>  
+          public int? height { get; set; }
           
           /// <summary>
           /// If true returns specific pages without annotations
@@ -286,14 +290,9 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
           public bool? withoutAnnotations { get; set; }
           
           /// <summary>
-          /// Indicates whether to use previously cached document or not
+          /// Render comments (false by default)
           /// </summary>  
-          public bool? enableCaching { get; set; }
-          
-          /// <summary>
-          /// The cache storage path
-          /// </summary>  
-          public string cacheStoragePath { get; set; }
+          public bool? renderComments { get; set; }
           
           /// <summary>
           /// Source document opening password

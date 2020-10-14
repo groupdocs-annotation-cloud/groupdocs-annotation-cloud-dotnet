@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="AnnotationInfo.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,6 +39,62 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
     public class AnnotationInfo 
     {                       
         /// <summary>
+        /// Gets or sets text horizontal alignment
+        /// </summary>
+        /// <value>Gets or sets text horizontal alignment</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum HorizontalAlignmentEnum
+        { 
+            /// <summary>
+            /// Enum None for "None"
+            /// </summary>            
+            None,
+            
+            /// <summary>
+            /// Enum Left for "Left"
+            /// </summary>            
+            Left,
+            
+            /// <summary>
+            /// Enum Center for "Center"
+            /// </summary>            
+            Center,
+            
+            /// <summary>
+            /// Enum Right for "Right"
+            /// </summary>            
+            Right            
+        }
+
+        /// <summary>
+        /// Gets or sets text vertical alignment
+        /// </summary>
+        /// <value>Gets or sets text vertical alignment</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VerticalAlignmentEnum
+        { 
+            /// <summary>
+            /// Enum None for "None"
+            /// </summary>            
+            None,
+            
+            /// <summary>
+            /// Enum Top for "Top"
+            /// </summary>            
+            Top,
+            
+            /// <summary>
+            /// Enum Center for "Center"
+            /// </summary>            
+            Center,
+            
+            /// <summary>
+            /// Enum Bottom for "Bottom"
+            /// </summary>            
+            Bottom            
+        }
+
+        /// <summary>
         /// Gets or sets the annotation type
         /// </summary>
         /// <value>Gets or sets the annotation type</value>
@@ -46,9 +102,9 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public enum TypeEnum
         { 
             /// <summary>
-            /// Enum Text for "Text"
+            /// Enum None for "None"
             /// </summary>            
-            Text,
+            None,
             
             /// <summary>
             /// Enum Area for "Area"
@@ -56,54 +112,9 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
             Area,
             
             /// <summary>
-            /// Enum Point for "Point"
-            /// </summary>            
-            Point,
-            
-            /// <summary>
-            /// Enum TextStrikeout for "TextStrikeout"
-            /// </summary>            
-            TextStrikeout,
-            
-            /// <summary>
-            /// Enum Polyline for "Polyline"
-            /// </summary>            
-            Polyline,
-            
-            /// <summary>
-            /// Enum TextField for "TextField"
-            /// </summary>            
-            TextField,
-            
-            /// <summary>
-            /// Enum Watermark for "Watermark"
-            /// </summary>            
-            Watermark,
-            
-            /// <summary>
-            /// Enum TextReplacement for "TextReplacement"
-            /// </summary>            
-            TextReplacement,
-            
-            /// <summary>
             /// Enum Arrow for "Arrow"
             /// </summary>            
             Arrow,
-            
-            /// <summary>
-            /// Enum TextRedaction for "TextRedaction"
-            /// </summary>            
-            TextRedaction,
-            
-            /// <summary>
-            /// Enum ResourcesRedaction for "ResourcesRedaction"
-            /// </summary>            
-            ResourcesRedaction,
-            
-            /// <summary>
-            /// Enum TextUnderline for "TextUnderline"
-            /// </summary>            
-            TextUnderline,
             
             /// <summary>
             /// Enum Distance for "Distance"
@@ -113,26 +124,116 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
             /// <summary>
             /// Enum Ellipse for "Ellipse"
             /// </summary>            
-            Ellipse            
+            Ellipse,
+            
+            /// <summary>
+            /// Enum Link for "Link"
+            /// </summary>            
+            Link,
+            
+            /// <summary>
+            /// Enum Point for "Point"
+            /// </summary>            
+            Point,
+            
+            /// <summary>
+            /// Enum Polyline for "Polyline"
+            /// </summary>            
+            Polyline,
+            
+            /// <summary>
+            /// Enum ResourcesRedaction for "ResourcesRedaction"
+            /// </summary>            
+            ResourcesRedaction,
+            
+            /// <summary>
+            /// Enum TextField for "TextField"
+            /// </summary>            
+            TextField,
+            
+            /// <summary>
+            /// Enum TextHighlight for "TextHighlight"
+            /// </summary>            
+            TextHighlight,
+            
+            /// <summary>
+            /// Enum TextRedaction for "TextRedaction"
+            /// </summary>            
+            TextRedaction,
+            
+            /// <summary>
+            /// Enum TextReplacement for "TextReplacement"
+            /// </summary>            
+            TextReplacement,
+            
+            /// <summary>
+            /// Enum TextStrikeout for "TextStrikeout"
+            /// </summary>            
+            TextStrikeout,
+            
+            /// <summary>
+            /// Enum TextUnderline for "TextUnderline"
+            /// </summary>            
+            TextUnderline,
+            
+            /// <summary>
+            /// Enum Watermark for "Watermark"
+            /// </summary>            
+            Watermark,
+            
+            /// <summary>
+            /// Enum Image for "Image"
+            /// </summary>            
+            Image            
         }
 
         /// <summary>
-        /// Gets or sets the annotation access
+        /// Gets or sets the annotation&#39;s pen style
         /// </summary>
-        /// <value>Gets or sets the annotation access</value>
+        /// <value>Gets or sets the annotation&#39;s pen style</value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum AccessEnum
+        public enum PenStyleEnum
         { 
             /// <summary>
-            /// Enum Public for "Public"
+            /// Enum Solid for "Solid"
             /// </summary>            
-            Public,
+            Solid,
             
             /// <summary>
-            /// Enum Private for "Private"
+            /// Enum Dash for "Dash"
             /// </summary>            
-            Private            
+            Dash,
+            
+            /// <summary>
+            /// Enum DashDot for "DashDot"
+            /// </summary>            
+            DashDot,
+            
+            /// <summary>
+            /// Enum Dot for "Dot"
+            /// </summary>            
+            Dot,
+            
+            /// <summary>
+            /// Enum LongDash for "LongDash"
+            /// </summary>            
+            LongDash,
+            
+            /// <summary>
+            /// Enum DashDotDot for "DashDotDot"
+            /// </summary>            
+            DashDotDot            
         }
+
+        /// <summary>
+        /// Gets or sets text horizontal alignment
+        /// </summary>
+        public HorizontalAlignmentEnum? HorizontalAlignment { get; set; }
+
+        /// <summary>
+        /// Gets or sets text vertical alignment
+        /// </summary>
+        public VerticalAlignmentEnum? VerticalAlignment { get; set; }
 
         /// <summary>
         /// Gets or sets the annotation type
@@ -140,19 +241,14 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public TypeEnum? Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the annotation access
+        /// Gets or sets the annotation&#39;s pen style
         /// </summary>
-        public AccessEnum? Access { get; set; }
+        public PenStyleEnum? PenStyle { get; set; }
 
         /// <summary>
         /// Gets or sets the unique identifier
         /// </summary>  
-        public string Guid { get; set; }
-
-        /// <summary>
-        /// Gets or sets the document unique identifier
-        /// </summary>  
-        public long? DocumentGuid { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the annotation text
@@ -160,9 +256,14 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public string Text { get; set; }
 
         /// <summary>
+        /// GGets or sets text to be replaced
+        /// </summary>  
+        public string TextToReplace { get; set; }
+
+        /// <summary>
         /// Gets or sets the creator unique identifier
         /// </summary>  
-        public string CreatorGuid { get; set; }
+        public int? CreatorId { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the creator
@@ -178,6 +279,11 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         /// Gets or sets the box where annotation will be placed
         /// </summary>  
         public Rectangle Box { get; set; }
+
+        /// <summary>
+        /// Gets or sets collection of points that describe rectangles with text
+        /// </summary>  
+        public List<Point> Points { get; set; }
 
         /// <summary>
         /// Gets or sets the number of page where annotation will be placed
@@ -220,19 +326,9 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public int? PenWidth { get; set; }
 
         /// <summary>
-        /// Gets or sets the annotation's pen style
-        /// </summary>  
-        public int? PenStyle { get; set; }
-
-        /// <summary>
         /// Gets or sets the annotation's background color 
         /// </summary>  
         public int? BackgroundColor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the annotation's field text
-        /// </summary>  
-        public string FieldText { get; set; }
 
         /// <summary>
         /// Gets or sets the annotation's font family
@@ -255,6 +351,16 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public double? Angle { get; set; }
 
         /// <summary>
+        /// Gets or sets annotation link url
+        /// </summary>  
+        public string Url { get; set; }
+
+        /// <summary>
+        /// Gets or sets image file path in cloud storage, for Image annotations
+        /// </summary>  
+        public string ImagePath { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -262,18 +368,20 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         {
           var sb = new StringBuilder();
           sb.Append("class AnnotationInfo {\n");
-          sb.Append("  Guid: ").Append(this.Guid).Append("\n");
-          sb.Append("  DocumentGuid: ").Append(this.DocumentGuid).Append("\n");
+          sb.Append("  Id: ").Append(this.Id).Append("\n");
           sb.Append("  Text: ").Append(this.Text).Append("\n");
-          sb.Append("  CreatorGuid: ").Append(this.CreatorGuid).Append("\n");
+          sb.Append("  TextToReplace: ").Append(this.TextToReplace).Append("\n");
+          sb.Append("  HorizontalAlignment: ").Append(this.HorizontalAlignment).Append("\n");
+          sb.Append("  VerticalAlignment: ").Append(this.VerticalAlignment).Append("\n");
+          sb.Append("  CreatorId: ").Append(this.CreatorId).Append("\n");
           sb.Append("  CreatorName: ").Append(this.CreatorName).Append("\n");
           sb.Append("  CreatorEmail: ").Append(this.CreatorEmail).Append("\n");
           sb.Append("  Box: ").Append(this.Box).Append("\n");
+          sb.Append("  Points: ").Append(this.Points).Append("\n");
           sb.Append("  PageNumber: ").Append(this.PageNumber).Append("\n");
           sb.Append("  AnnotationPosition: ").Append(this.AnnotationPosition).Append("\n");
           sb.Append("  SvgPath: ").Append(this.SvgPath).Append("\n");
           sb.Append("  Type: ").Append(this.Type).Append("\n");
-          sb.Append("  Access: ").Append(this.Access).Append("\n");
           sb.Append("  Replies: ").Append(this.Replies).Append("\n");
           sb.Append("  CreatedOn: ").Append(this.CreatedOn).Append("\n");
           sb.Append("  FontColor: ").Append(this.FontColor).Append("\n");
@@ -281,11 +389,12 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
           sb.Append("  PenWidth: ").Append(this.PenWidth).Append("\n");
           sb.Append("  PenStyle: ").Append(this.PenStyle).Append("\n");
           sb.Append("  BackgroundColor: ").Append(this.BackgroundColor).Append("\n");
-          sb.Append("  FieldText: ").Append(this.FieldText).Append("\n");
           sb.Append("  FontFamily: ").Append(this.FontFamily).Append("\n");
           sb.Append("  FontSize: ").Append(this.FontSize).Append("\n");
           sb.Append("  Opacity: ").Append(this.Opacity).Append("\n");
           sb.Append("  Angle: ").Append(this.Angle).Append("\n");
+          sb.Append("  Url: ").Append(this.Url).Append("\n");
+          sb.Append("  ImagePath: ").Append(this.ImagePath).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

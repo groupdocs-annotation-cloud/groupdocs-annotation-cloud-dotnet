@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,19 +58,19 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
             Assert.IsInstanceOf(typeof(AnnotationInfo), annotations[0]);
         }
 
-        [TestCase(@"cells\one-page.xlsx", Ignore = "")]
+        [TestCase(@"cells\one-page.xlsx")]
         [TestCase(@"diagram\one-page.vsd")]
         [TestCase(@"email\one-page.emlx")]
         [TestCase(@"images\one-page.png")]
         [TestCase(@"pdf\one-page.pdf")]
         [TestCase(@"slides\one-page.pptx")]
         [TestCase(@"words\one-page.docx")]
-        [TestCase(@"cells\ten-pages.xlsx", "Area,Point", true, 2, 5, Ignore = "")]
+        [TestCase(@"cells\ten-pages.xlsx", "Area,Point", true, 2, 5)]
         [TestCase(@"diagram\ten-pages.vsd", "Area,Point", true, 2, 5)]
-        [TestCase(@"pdf\ten-pages.pdf", "Area,Point", true, 2, 5)]
+        [TestCase(@"pdf\ten-pages.pdf", "Area,Point", true, 1, 2)]
         [TestCase(@"slides\ten-pages.pptx", "Area,Point", true, 2, 5)]
         [TestCase(@"words\ten-pages.docx", "Area,Point", true, 2, 5)]
-        [TestCase(@"cells\one-page-password.xlsx", null, false, -1, -1, "password", Ignore = "")]
+        [TestCase(@"cells\one-page-password.xlsx", null, false, -1, -1, "password")]
         [TestCase(@"pdf\one-page-password.pdf", null, false, -1, -1, "password")]
         [TestCase(@"slides\one-page-password.pptx", null, false, -1, -1, "password")]
         [TestCase(@"words\one-page-password.docx", null, false, -1, -1, "password")]
@@ -135,7 +135,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
             AnnotateApi.PostAnnotations(request);
         }
 
-        private List<AnnotationInfo> GetAnnotationsTestBody()
+        private static List<AnnotationInfo> GetAnnotationsTestBody()
         {
             AnnotationInfo[] annotations = {
                 new AnnotationInfo
