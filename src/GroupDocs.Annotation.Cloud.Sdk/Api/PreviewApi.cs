@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PreviewApi.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -71,24 +71,23 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         /// <param name="request">Request. <see cref="DeletePagesRequest" /></param>
         public void DeletePages(DeletePagesRequest request)
         {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
+            // verify the required parameter 'fileInfo' is set
+            if (request.fileInfo == null) 
             {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling DeletePages");
+                throw new ApiException(400, "Missing required parameter 'fileInfo' when calling DeletePages");
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/annotation/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/annotation/preview/remove";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            
+            var postBody = SerializationHelper.Serialize(request.fileInfo); // http body (model) parameter
             this.apiInvoker.InvokeApi(
                 resourcePath, 
-                "DELETE", 
-                null, 
+                "POST", 
+                postBody, 
                 null, 
                 null);
         }
@@ -100,31 +99,23 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         /// <returns><see cref="PageImages"/></returns>
         public PageImages GetPages(GetPagesRequest request)
         {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
+            // verify the required parameter 'options' is set
+            if (request.options == null) 
             {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling GetPages");
+                throw new ApiException(400, "Missing required parameter 'options' when calling GetPages");
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/annotation/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/annotation/preview/create";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumbersToConvert", request.pageNumbersToConvert);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.width);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.height);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "withoutAnnotations", request.withoutAnnotations);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.renderComments);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.password);
-            
+            var postBody = SerializationHelper.Serialize(request.options); // http body (model) parameter
             var response = this.apiInvoker.InvokeApi(
                 resourcePath, 
-                "GET", 
-                null, 
+                "POST", 
+                postBody, 
                 null, 
                 null);
 
@@ -139,7 +130,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DeletePagesRequest.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -182,21 +173,21 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
           /// <summary>
           /// Initializes a new instance of the <see cref="DeletePagesRequest"/> class.
           /// </summary>
-          /// <param name="filePath">Document path in storage</param>
-          public DeletePagesRequest(string filePath)             
+          /// <param name="fileInfo">Document info to remove preview</param>
+          public DeletePagesRequest(FileInfo fileInfo)             
           {
-              this.filePath = filePath;
+              this.fileInfo = fileInfo;
           }
           
           /// <summary>
-          /// Document path in storage
+          /// Document info to remove preview
           /// </summary>  
-          public string filePath { get; set; }
+          public FileInfo fileInfo { get; set; }
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetPagesRequest.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -239,64 +230,15 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
           /// <summary>
           /// Initializes a new instance of the <see cref="GetPagesRequest"/> class.
           /// </summary>
-          /// <param name="filePath">Document path in storage</param>
-          /// <param name="pageNumbersToConvert">The list of page numbers to convert</param>
-          /// <param name="format">Preview format: \&quot;PNG\&quot; (default), \&quot;JPEG\&quot;, or \&quot;BMP\&quot;</param>
-          /// <param name="width">Preview image width</param>
-          /// <param name="height">Preview image height</param>
-          /// <param name="withoutAnnotations">If true returns specific pages without annotations</param>
-          /// <param name="renderComments">Render comments (false by default)</param>
-          /// <param name="password">Source document opening password</param>
-          public GetPagesRequest(string filePath, List<int?> pageNumbersToConvert = null, string format = null, int? width = null, int? height = null, bool? withoutAnnotations = null, bool? renderComments = null, string password = null)             
+          /// <param name="options">Document preview options</param>
+          public GetPagesRequest(PreviewOptions options)             
           {
-              this.filePath = filePath;
-              this.pageNumbersToConvert = pageNumbersToConvert;
-              this.format = format;
-              this.width = width;
-              this.height = height;
-              this.withoutAnnotations = withoutAnnotations;
-              this.renderComments = renderComments;
-              this.password = password;
+              this.options = options;
           }
           
           /// <summary>
-          /// Document path in storage
+          /// Document preview options
           /// </summary>  
-          public string filePath { get; set; }
-          
-          /// <summary>
-          /// The list of page numbers to convert
-          /// </summary>  
-          public List<int?> pageNumbersToConvert { get; set; }
-          
-          /// <summary>
-          /// Preview format: \"PNG\" (default), \"JPEG\", or \"BMP\"
-          /// </summary>  
-          public string format { get; set; }
-          
-          /// <summary>
-          /// Preview image width
-          /// </summary>  
-          public int? width { get; set; }
-          
-          /// <summary>
-          /// Preview image height
-          /// </summary>  
-          public int? height { get; set; }
-          
-          /// <summary>
-          /// If true returns specific pages without annotations
-          /// </summary>  
-          public bool? withoutAnnotations { get; set; }
-          
-          /// <summary>
-          /// Render comments (false by default)
-          /// </summary>  
-          public bool? renderComments { get; set; }
-          
-          /// <summary>
-          /// Source document opening password
-          /// </summary>  
-          public string password { get; set; }
+          public PreviewOptions options { get; set; }
     }
 }

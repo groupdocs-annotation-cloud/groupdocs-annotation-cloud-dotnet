@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,7 +50,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         protected FolderApi FolderApi;
         protected StorageApi StorageApi;
 
-        protected const string DefaultOutputPath = "annotation";
+        protected const string DefaultOutputPath = "Output";
 
         [OneTimeSetUp]
         public void BeforeAllTests()
@@ -73,7 +73,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TearDown]
         public void Cleanup()
         {
-            //DeleteFolderFromStorage(DefaultOutputPath);
+            DeleteFolderFromStorage(DefaultOutputPath);
         }
 
         private void UploadTestFiles()

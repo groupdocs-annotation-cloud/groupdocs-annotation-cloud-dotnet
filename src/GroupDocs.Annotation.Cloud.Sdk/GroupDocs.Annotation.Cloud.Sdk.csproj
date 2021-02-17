@@ -2,9 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net20</TargetFrameworks>
-    <AssemblyVersion>20.10.0.0</AssemblyVersion>
-    <FileVersion>20.10.0.0</FileVersion>
-    <Version>20.10</Version>
+    <AssemblyVersion>21.2.0.0</AssemblyVersion>
+    <FileVersion>21.2.0.0</FileVersion>
+    <Version>21.2</Version>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
     <Company>GroupDocs</Company>
     <Authors>GroupDocs Product Team</Authors>
@@ -14,7 +14,7 @@
     <PackageProjectUrl>https://products.groupdocs.cloud/annotation/family</PackageProjectUrl>
     <RepositoryUrl>https://github.com/groupdocs-annotation-cloud/groupdocs-annotation-cloud-dotnet</RepositoryUrl>
   </PropertyGroup>
-  <PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
     <DocumentationFile>GroupDocs.Annotation.Cloud.Sdk.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
@@ -29,5 +29,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="GroupDocs.Annotation.Cloud.Sdk.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

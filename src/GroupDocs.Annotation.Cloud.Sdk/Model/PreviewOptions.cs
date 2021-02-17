@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="AnnotationReplyInfo.cs">
+// <copyright company="Aspose Pty Ltd" file="PreviewOptions.cs">
 //  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,44 +34,62 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Describes annotation reply properties
+    /// Represents options for GetPages API method
     /// </summary>  
-    public class AnnotationReplyInfo 
+    public class PreviewOptions 
     {                       
         /// <summary>
-        /// Gets or sets the unique identifier
-        /// </summary>  
-        public int? Id { get; set; }
+        /// Preview format. Supported values are: PNG, JPEG or BMP. Default value is PNG.
+        /// </summary>
+        /// <value>Preview format. Supported values are: PNG, JPEG or BMP. Default value is PNG.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FormatEnum
+        { 
+            /// <summary>
+            /// Enum PNG for "PNG"
+            /// </summary>            
+            PNG,
+            
+            /// <summary>
+            /// Enum JPEG for "JPEG"
+            /// </summary>            
+            JPEG,
+            
+            /// <summary>
+            /// Enum BMP for "BMP"
+            /// </summary>            
+            BMP            
+        }
 
         /// <summary>
-        /// Gets or sets the user's unique identifier
-        /// </summary>  
-        public int? UserId { get; set; }
+        /// Preview format. Supported values are: PNG, JPEG or BMP. Default value is PNG.
+        /// </summary>
+        public FormatEnum? Format { get; set; }
 
         /// <summary>
-        /// Gets or sets the user's name
+        /// Input document description
         /// </summary>  
-        public string UserName { get; set; }
+        public FileInfo FileInfo { get; set; }
 
         /// <summary>
-        /// Gets or sets the user email
+        /// Page numbers to preview. All pages proceeded if not specified.
         /// </summary>  
-        public string UserEmail { get; set; }
+        public List<int?> PageNumbers { get; set; }
 
         /// <summary>
-        /// Gets or sets the message
+        /// Preview image width. Not required. Default width used if not specified or 0.
         /// </summary>  
-        public string Comment { get; set; }
+        public int? Width { get; set; }
 
         /// <summary>
-        /// Gets or sets the reply time
+        /// Preview image height. Not required. Default width used if not specified or 0.
         /// </summary>  
-        public DateTime? RepliedOn { get; set; }
+        public int? Height { get; set; }
 
         /// <summary>
-        /// Gets or sets the parent reply unique identifier
+        /// Render document comments. Default value is 'false'.
         /// </summary>  
-        public int? ParentReplyId { get; set; }
+        public bool? RenderComments { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -80,14 +98,13 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class AnnotationReplyInfo {\n");
-          sb.Append("  Id: ").Append(this.Id).Append("\n");
-          sb.Append("  UserId: ").Append(this.UserId).Append("\n");
-          sb.Append("  UserName: ").Append(this.UserName).Append("\n");
-          sb.Append("  UserEmail: ").Append(this.UserEmail).Append("\n");
-          sb.Append("  Comment: ").Append(this.Comment).Append("\n");
-          sb.Append("  RepliedOn: ").Append(this.RepliedOn).Append("\n");
-          sb.Append("  ParentReplyId: ").Append(this.ParentReplyId).Append("\n");
+          sb.Append("class PreviewOptions {\n");
+          sb.Append("  FileInfo: ").Append(this.FileInfo).Append("\n");
+          sb.Append("  Format: ").Append(this.Format).Append("\n");
+          sb.Append("  PageNumbers: ").Append(this.PageNumbers).Append("\n");
+          sb.Append("  Width: ").Append(this.Width).Append("\n");
+          sb.Append("  Height: ").Append(this.Height).Append("\n");
+          sb.Append("  RenderComments: ").Append(this.RenderComments).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="PageImages.cs">
+// <copyright company="Aspose Pty Ltd" file="FileInfo.cs">
 //  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,19 +34,29 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Represents collection of document pages image representations
+    /// File info
     /// </summary>  
-    public class PageImages 
+    public class FileInfo 
     {                       
         /// <summary>
-        /// The total count of page image entries in collection
+        /// File path in storage
         /// </summary>  
-        public int? TotalCount { get; set; }
+        public string FilePath { get; set; }
 
         /// <summary>
-        /// The collection of pages image representations
+        /// Storage name
         /// </summary>  
-        public List<PageImage> Entries { get; set; }
+        public string StorageName { get; set; }
+
+        /// <summary>
+        /// Version ID
+        /// </summary>  
+        public string VersionId { get; set; }
+
+        /// <summary>
+        /// Password to open file
+        /// </summary>  
+        public string Password { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -55,9 +65,11 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class PageImages {\n");
-          sb.Append("  TotalCount: ").Append(this.TotalCount).Append("\n");
-          sb.Append("  Entries: ").Append(this.Entries).Append("\n");
+          sb.Append("class FileInfo {\n");
+          sb.Append("  FilePath: ").Append(this.FilePath).Append("\n");
+          sb.Append("  StorageName: ").Append(this.StorageName).Append("\n");
+          sb.Append("  VersionId: ").Append(this.VersionId).Append("\n");
+          sb.Append("  Password: ").Append(this.Password).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

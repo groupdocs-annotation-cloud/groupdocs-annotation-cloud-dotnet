@@ -22,25 +22,27 @@
             </summary>    
             <param name="configuration">Configuration settings</param>
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.DeleteAnnotations(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest)">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.Annotate(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest)">
+            <summary>
+            Adds annotations to document and saves output file into cloud storage 
+            </summary>
+            <param name="request">Request. <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest" /></param>
+            <returns><see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationApiLink"/></returns>
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.AnnotateDirect(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest)">
+            <summary>
+            Adds annotations to document and returns output file 
+            </summary>
+            <param name="request">Request. <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest" /></param>
+            <returns><see cref="T:System.IO.Stream"/></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.Extract(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest)" -->
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.RemoveAnnotations(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest)">
             <summary>
             Removes annotations from document 
             </summary>
-            <param name="request">Request. <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest" /></param>
-        </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.GetExport(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest)">
-            <summary>
-            Retrieves document with annotations 
-            </summary>
-            <param name="request">Request. <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest" /></param>
-            <returns><see cref="T:System.IO.Stream"/></returns>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.GetImport(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest)" -->
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.PostAnnotations(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest)">
-            <summary>
-            Adds annotations to document 
-            </summary>
-            <param name="request">Request. <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest" /></param>
+            <param name="request">Request. <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest" /></param>
+            <returns><see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationApiLink"/></returns>
         </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Api.FileApi">
             <summary>
@@ -249,124 +251,88 @@
             <param name="request">Request. <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.StorageExistsRequest" /></param>
             <returns><see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.StorageExist"/></returns>
         </member>
-        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest">
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest">
             <summary>
-            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.DeleteAnnotations(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest)" /> operation.
+            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.Annotate(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest)" /> operation.
             </summary>  
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest.#ctor">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest"/> class.
             </summary>        
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest.#ctor(System.String)">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest.#ctor(GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions)">
             <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest"/> class.
             </summary>
-            <param name="filePath">Document path in storage</param>
+            <param name="options">Annotation options</param>
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeleteAnnotationsRequest.filePath">
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateRequest.options">
             <summary>
-            Document path in storage
+            Annotation options
             </summary>  
         </member>
-        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest">
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest">
             <summary>
-            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.GetExport(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest)" /> operation.
+            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.AnnotateDirect(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest)" /> operation.
             </summary>  
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.#ctor">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest"/> class.
             </summary>        
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.#ctor(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest.#ctor(GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions)">
             <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest"/> class.
             </summary>
-            <param name="filePath">Document path in storage</param>
-            <param name="annotationTypes">Annotation types that will be exported. All annotation types will be exported if not specified</param>
-            <param name="annotatedPages">Indicates whether to export only annotated pages</param>
-            <param name="firstPage">Determines number of first exported page</param>
-            <param name="lastPage">Determines number of last exported page</param>
-            <param name="password">Source document password</param>
+            <param name="options">Annotation options</param>
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.filePath">
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.AnnotateDirectRequest.options">
             <summary>
-            Document path in storage
+            Annotation options
             </summary>  
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.annotationTypes">
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest">
             <summary>
-            Annotation types that will be exported. All annotation types will be exported if not specified
+            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.Extract(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest)" /> operation.
             </summary>  
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.annotatedPages">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest.#ctor">
             <summary>
-            Indicates whether to export only annotated pages
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.firstPage">
-            <summary>
-            Determines number of first exported page
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.lastPage">
-            <summary>
-            Determines number of last exported page
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetExportRequest.password">
-            <summary>
-            Source document password
-            </summary>  
-        </member>
-        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest">
-            <summary>
-            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.GetImport(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest)" /> operation.
-            </summary>  
-        </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest"/> class.
             </summary>        
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest.#ctor(System.String)">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest.#ctor(GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo)">
             <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest"/> class.
             </summary>
-            <param name="filePath">Document path in storage</param>
+            <param name="fileInfo">Input file information</param>
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetImportRequest.filePath">
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.ExtractRequest.fileInfo">
             <summary>
-            Document path in storage
+            Input file information
             </summary>  
         </member>
-        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest">
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest">
             <summary>
-            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.PostAnnotations(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest)" /> operation.
+            Request model for <see cref="M:GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.RemoveAnnotations(GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest)" /> operation.
             </summary>  
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest.#ctor">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest"/> class.
             </summary>        
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest.#ctor(System.String,System.Collections.Generic.List{GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo})">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest.#ctor(GroupDocs.Annotation.Cloud.Sdk.Model.RemoveOptions)">
             <summary>
-            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest"/> class.
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest"/> class.
             </summary>
-            <param name="filePath">Document path in storage</param>
-            <param name="annotations">Array of annotation descriptions</param>
+            <param name="options">Remove annotations options</param>
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest.filePath">
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.RemoveAnnotationsRequest.options">
             <summary>
-            Document path in storage
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.PostAnnotationsRequest.annotations">
-            <summary>
-            Array of annotation descriptions
+            Remove annotations options
             </summary>  
         </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.CopyFileRequest">
@@ -733,21 +699,15 @@
             Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetInfoRequest"/> class.
             </summary>        
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetInfoRequest.#ctor(System.String,System.String)">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetInfoRequest.#ctor(GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo)">
             <summary>
             Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetInfoRequest"/> class.
             </summary>
-            <param name="filePath">Document path in storage</param>
-            <param name="password">Source document password</param>
+            <param name="fileInfo">Document path in storage and password</param>
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetInfoRequest.filePath">
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetInfoRequest.fileInfo">
             <summary>
-            Document path in storage
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetInfoRequest.password">
-            <summary>
-            Source document password
+            Document path in storage and password
             </summary>  
         </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeletePagesRequest">
@@ -760,15 +720,15 @@
             Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeletePagesRequest"/> class.
             </summary>        
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeletePagesRequest.#ctor(System.String)">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeletePagesRequest.#ctor(GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo)">
             <summary>
             Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeletePagesRequest"/> class.
             </summary>
-            <param name="filePath">Document path in storage</param>
+            <param name="fileInfo">Document info to remove preview</param>
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeletePagesRequest.filePath">
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.DeletePagesRequest.fileInfo">
             <summary>
-            Document path in storage
+            Document info to remove preview
             </summary>  
         </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest">
@@ -781,57 +741,15 @@
             Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest"/> class.
             </summary>        
         </member>
-        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.#ctor(System.String,System.Collections.Generic.List{System.Nullable{System.Int32}},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.#ctor(GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions)">
             <summary>
             Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest"/> class.
             </summary>
-            <param name="filePath">Document path in storage</param>
-            <param name="pageNumbersToConvert">The list of page numbers to convert</param>
-            <param name="format">Preview format: \&quot;PNG\&quot; (default), \&quot;JPEG\&quot;, or \&quot;BMP\&quot;</param>
-            <param name="width">Preview image width</param>
-            <param name="height">Preview image height</param>
-            <param name="withoutAnnotations">If true returns specific pages without annotations</param>
-            <param name="renderComments">Render comments (false by default)</param>
-            <param name="password">Source document opening password</param>
+            <param name="options">Document preview options</param>
         </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.filePath">
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.options">
             <summary>
-            Document path in storage
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.pageNumbersToConvert">
-            <summary>
-            The list of page numbers to convert
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.format">
-            <summary>
-            Preview format: \"PNG\" (default), \"JPEG\", or \"BMP\"
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.width">
-            <summary>
-            Preview image width
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.height">
-            <summary>
-            Preview image height
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.withoutAnnotations">
-            <summary>
-            If true returns specific pages without annotations
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.renderComments">
-            <summary>
-            Render comments (false by default)
-            </summary>  
-        </member>
-        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetPagesRequest.password">
-            <summary>
-            Source document opening password
+            Document preview options
             </summary>  
         </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Requests.GetDiscUsageRequest">
@@ -935,6 +853,47 @@
             <summary>
             Storage name
             </summary>  
+        </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions">
+            <summary>
+            Defines options for annotating documents
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.FileInfo">
+            <summary>
+            Input document description
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.Annotations">
+            <summary>
+            List of annotations to add to the document
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.FirstPage">
+            <summary>
+            First page number when saving page range
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.LastPage">
+            <summary>
+            Last page number when saving page range
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.OnlyAnnotatedPages">
+            <summary>
+            Indicates whether to save only annotated pages
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.OutputPath">
+            <summary>
+            Path to output document in the cloud storage. Required for Add method. Not required if Annotate (with file result) method used.
+            </summary>  
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
         </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationApiLink">
             <summary>
@@ -1090,6 +1049,11 @@
             Enum Watermark for "Watermark"
             </summary>            
         </member>
+        <member name="F:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.TypeEnum.Image">
+            <summary>
+            Enum Image for "Image"
+            </summary>            
+        </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.PenStyleEnum">
             <summary>
             Gets or sets the annotation&#39;s pen style
@@ -1154,6 +1118,11 @@
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.Text">
             <summary>
             Gets or sets the annotation text
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.TextToReplace">
+            <summary>
+            GGets or sets text to be replaced
             </summary>  
         </member>
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.CreatorId">
@@ -1249,6 +1218,11 @@
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.Url">
             <summary>
             Gets or sets annotation link url
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.ImagePath">
+            <summary>
+            Gets or sets image file path in cloud storage, for Image annotations
             </summary>  
         </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.ToString">
@@ -1417,6 +1391,37 @@
             </summary>  
         </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.ErrorDetails.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo">
+            <summary>
+            File info
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo.FilePath">
+            <summary>
+            File path in storage
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo.StorageName">
+            <summary>
+            Storage name
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo.VersionId">
+            <summary>
+            Version ID
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo.Password">
+            <summary>
+            Password to open file
+            </summary>  
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.FileInfo.ToString">
             <summary>
             Get the string presentation of the object
             </summary>
@@ -1685,6 +1690,68 @@
             </summary>
             <returns>String presentation of the object</returns>
         </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions">
+            <summary>
+            Represents options for GetPages API method
+            </summary>  
+        </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.FormatEnum">
+            <summary>
+            Preview format. Supported values are: PNG, JPEG or BMP. Default value is PNG.
+            </summary>
+            <value>Preview format. Supported values are: PNG, JPEG or BMP. Default value is PNG.</value>
+        </member>
+        <member name="F:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.FormatEnum.PNG">
+            <summary>
+            Enum PNG for "PNG"
+            </summary>            
+        </member>
+        <member name="F:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.FormatEnum.JPEG">
+            <summary>
+            Enum JPEG for "JPEG"
+            </summary>            
+        </member>
+        <member name="F:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.FormatEnum.BMP">
+            <summary>
+            Enum BMP for "BMP"
+            </summary>            
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.Format">
+            <summary>
+            Preview format. Supported values are: PNG, JPEG or BMP. Default value is PNG.
+            </summary>
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.FileInfo">
+            <summary>
+            Input document description
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.PageNumbers">
+            <summary>
+            Page numbers to preview. All pages proceeded if not specified.
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.Width">
+            <summary>
+            Preview image width. Not required. Default width used if not specified or 0.
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.Height">
+            <summary>
+            Preview image height. Not required. Default width used if not specified or 0.
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.RenderComments">
+            <summary>
+            Render document comments. Default value is 'false'.
+            </summary>  
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.Rectangle">
             <summary>
             Describes rectangle where annotation will be placed
@@ -1711,6 +1778,32 @@
             </summary>  
         </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.Rectangle.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.RemoveOptions">
+            <summary>
+            Options for removing annotations
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.RemoveOptions.FileInfo">
+            <summary>
+            Input document description
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.RemoveOptions.AnnotationIds">
+            <summary>
+            List of annotation IDs to remove from the document
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.RemoveOptions.OutputPath">
+            <summary>
+            Path to output document in the cloud storage.
+            </summary>  
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.RemoveOptions.ToString">
             <summary>
             Get the string presentation of the object
             </summary>

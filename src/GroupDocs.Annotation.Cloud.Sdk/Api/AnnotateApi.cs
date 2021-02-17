@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="AnnotateApi.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -66,63 +66,64 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         }                            
 
         /// <summary>
-        /// Removes annotations from document 
+        /// Adds annotations to document and saves output file into cloud storage 
         /// </summary>
-        /// <param name="request">Request. <see cref="DeleteAnnotationsRequest" /></param>
-        public void DeleteAnnotations(DeleteAnnotationsRequest request)
+        /// <param name="request">Request. <see cref="AnnotateRequest" /></param>
+        /// <returns><see cref="AnnotationApiLink"/></returns>
+        public AnnotationApiLink Annotate(AnnotateRequest request)
         {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
+            // verify the required parameter 'options' is set
+            if (request.options == null) 
             {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling DeleteAnnotations");
+                throw new ApiException(400, "Missing required parameter 'options' when calling Annotate");
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/annotation";
+            var resourcePath = this.configuration.GetServerUrl() + "/annotation/add";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            
-            this.apiInvoker.InvokeApi(
+            var postBody = SerializationHelper.Serialize(request.options); // http body (model) parameter
+            var response = this.apiInvoker.InvokeApi(
                 resourcePath, 
-                "DELETE", 
-                null, 
+                "POST", 
+                postBody, 
                 null, 
                 null);
+
+            if (response != null)
+            {
+                return (AnnotationApiLink)SerializationHelper.Deserialize(response, typeof(AnnotationApiLink));
+            }
+
+            return null;
         }
 
         /// <summary>
-        /// Retrieves document with annotations 
+        /// Adds annotations to document and returns output file 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetExportRequest" /></param>
+        /// <param name="request">Request. <see cref="AnnotateDirectRequest" /></param>
         /// <returns><see cref="System.IO.Stream"/></returns>
-        public System.IO.Stream GetExport(GetExportRequest request)
+        public System.IO.Stream AnnotateDirect(AnnotateDirectRequest request)
         {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
+            // verify the required parameter 'options' is set
+            if (request.options == null) 
             {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling GetExport");
+                throw new ApiException(400, "Missing required parameter 'options' when calling AnnotateDirect");
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/annotation/result";
+            var resourcePath = this.configuration.GetServerUrl() + "/annotation/add";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "annotationTypes", request.annotationTypes);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "annotatedPages", request.annotatedPages);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "firstPage", request.firstPage);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "lastPage", request.lastPage);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.password);
-            
+            var postBody = SerializationHelper.Serialize(request.options); // http body (model) parameter
             return this.apiInvoker.InvokeBinaryApi(
                     resourcePath, 
-                    "GET", 
-                    null, 
+                    "PUT", 
+                    postBody, 
                     null, 
                     null);
         }
@@ -130,28 +131,27 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         /// <summary>
         /// Extracts annotations from document 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetImportRequest" /></param>
+        /// <param name="request">Request. <see cref="ExtractRequest" /></param>
         /// <returns><see cref="List<AnnotationInfo>"/></returns>
-        public List<AnnotationInfo> GetImport(GetImportRequest request)
+        public List<AnnotationInfo> Extract(ExtractRequest request)
         {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
+            // verify the required parameter 'fileInfo' is set
+            if (request.fileInfo == null) 
             {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling GetImport");
+                throw new ApiException(400, "Missing required parameter 'fileInfo' when calling Extract");
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/annotation";
+            var resourcePath = this.configuration.GetServerUrl() + "/annotation/extract";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            
+            var postBody = SerializationHelper.Serialize(request.fileInfo); // http body (model) parameter
             var response = this.apiInvoker.InvokeApi(
                 resourcePath, 
-                "GET", 
-                null, 
+                "POST", 
+                postBody, 
                 null, 
                 null);
 
@@ -164,43 +164,44 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Adds annotations to document 
+        /// Removes annotations from document 
         /// </summary>
-        /// <param name="request">Request. <see cref="PostAnnotationsRequest" /></param>
-        public void PostAnnotations(PostAnnotationsRequest request)
+        /// <param name="request">Request. <see cref="RemoveAnnotationsRequest" /></param>
+        /// <returns><see cref="AnnotationApiLink"/></returns>
+        public AnnotationApiLink RemoveAnnotations(RemoveAnnotationsRequest request)
         {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
+            // verify the required parameter 'options' is set
+            if (request.options == null) 
             {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling PostAnnotations");
-            }
-
-            // verify the required parameter 'annotations' is set
-            if (request.annotations == null) 
-            {
-                throw new ApiException(400, "Missing required parameter 'annotations' when calling PostAnnotations");
+                throw new ApiException(400, "Missing required parameter 'options' when calling RemoveAnnotations");
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/annotation";
+            var resourcePath = this.configuration.GetServerUrl() + "/annotation/remove";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            var postBody = SerializationHelper.Serialize(request.annotations); // http body (model) parameter
-            this.apiInvoker.InvokeApi(
+            var postBody = SerializationHelper.Serialize(request.options); // http body (model) parameter
+            var response = this.apiInvoker.InvokeApi(
                 resourcePath, 
                 "POST", 
                 postBody, 
                 null, 
                 null);
+
+            if (response != null)
+            {
+                return (AnnotationApiLink)SerializationHelper.Deserialize(response, typeof(AnnotationApiLink));
+            }
+
+            return null;
         }
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="DeleteAnnotationsRequest.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+// <copyright company="Aspose Pty Ltd" file="AnnotateRequest.cs">
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -229,35 +230,35 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
     using GroupDocs.Annotation.Cloud.Sdk.Model; 
 
     /// <summary>
-    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.DeleteAnnotations" /> operation.
+    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.Annotate" /> operation.
     /// </summary>  
-    public class DeleteAnnotationsRequest  
+    public class AnnotateRequest  
     {
           /// <summary>
-          /// Initializes a new instance of the <see cref="DeleteAnnotationsRequest"/> class.
+          /// Initializes a new instance of the <see cref="AnnotateRequest"/> class.
           /// </summary>        
-          public DeleteAnnotationsRequest()
+          public AnnotateRequest()
           {
           }
 
           /// <summary>
-          /// Initializes a new instance of the <see cref="DeleteAnnotationsRequest"/> class.
+          /// Initializes a new instance of the <see cref="AnnotateRequest"/> class.
           /// </summary>
-          /// <param name="filePath">Document path in storage</param>
-          public DeleteAnnotationsRequest(string filePath)             
+          /// <param name="options">Annotation options</param>
+          public AnnotateRequest(AnnotateOptions options)             
           {
-              this.filePath = filePath;
+              this.options = options;
           }
           
           /// <summary>
-          /// Document path in storage
+          /// Annotation options
           /// </summary>  
-          public string filePath { get; set; }
+          public AnnotateOptions options { get; set; }
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="GetExportRequest.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+// <copyright company="Aspose Pty Ltd" file="AnnotateDirectRequest.cs">
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -286,70 +287,35 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
     using GroupDocs.Annotation.Cloud.Sdk.Model; 
 
     /// <summary>
-    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.GetExport" /> operation.
+    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.AnnotateDirect" /> operation.
     /// </summary>  
-    public class GetExportRequest  
+    public class AnnotateDirectRequest  
     {
           /// <summary>
-          /// Initializes a new instance of the <see cref="GetExportRequest"/> class.
+          /// Initializes a new instance of the <see cref="AnnotateDirectRequest"/> class.
           /// </summary>        
-          public GetExportRequest()
+          public AnnotateDirectRequest()
           {
           }
 
           /// <summary>
-          /// Initializes a new instance of the <see cref="GetExportRequest"/> class.
+          /// Initializes a new instance of the <see cref="AnnotateDirectRequest"/> class.
           /// </summary>
-          /// <param name="filePath">Document path in storage</param>
-          /// <param name="annotationTypes">Annotation types that will be exported. All annotation types will be exported if not specified</param>
-          /// <param name="annotatedPages">Indicates whether to export only annotated pages</param>
-          /// <param name="firstPage">Determines number of first exported page</param>
-          /// <param name="lastPage">Determines number of last exported page</param>
-          /// <param name="password">Source document password</param>
-          public GetExportRequest(string filePath, string annotationTypes = null, bool? annotatedPages = null, int? firstPage = null, int? lastPage = null, string password = null)             
+          /// <param name="options">Annotation options</param>
+          public AnnotateDirectRequest(AnnotateOptions options)             
           {
-              this.filePath = filePath;
-              this.annotationTypes = annotationTypes;
-              this.annotatedPages = annotatedPages;
-              this.firstPage = firstPage;
-              this.lastPage = lastPage;
-              this.password = password;
+              this.options = options;
           }
           
           /// <summary>
-          /// Document path in storage
+          /// Annotation options
           /// </summary>  
-          public string filePath { get; set; }
-          
-          /// <summary>
-          /// Annotation types that will be exported. All annotation types will be exported if not specified
-          /// </summary>  
-          public string annotationTypes { get; set; }
-          
-          /// <summary>
-          /// Indicates whether to export only annotated pages
-          /// </summary>  
-          public bool? annotatedPages { get; set; }
-          
-          /// <summary>
-          /// Determines number of first exported page
-          /// </summary>  
-          public int? firstPage { get; set; }
-          
-          /// <summary>
-          /// Determines number of last exported page
-          /// </summary>  
-          public int? lastPage { get; set; }
-          
-          /// <summary>
-          /// Source document password
-          /// </summary>  
-          public string password { get; set; }
+          public AnnotateOptions options { get; set; }
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="GetImportRequest.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+// <copyright company="Aspose Pty Ltd" file="ExtractRequest.cs">
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -378,35 +344,35 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
     using GroupDocs.Annotation.Cloud.Sdk.Model; 
 
     /// <summary>
-    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.GetImport" /> operation.
+    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.Extract" /> operation.
     /// </summary>  
-    public class GetImportRequest  
+    public class ExtractRequest  
     {
           /// <summary>
-          /// Initializes a new instance of the <see cref="GetImportRequest"/> class.
+          /// Initializes a new instance of the <see cref="ExtractRequest"/> class.
           /// </summary>        
-          public GetImportRequest()
+          public ExtractRequest()
           {
           }
 
           /// <summary>
-          /// Initializes a new instance of the <see cref="GetImportRequest"/> class.
+          /// Initializes a new instance of the <see cref="ExtractRequest"/> class.
           /// </summary>
-          /// <param name="filePath">Document path in storage</param>
-          public GetImportRequest(string filePath)             
+          /// <param name="fileInfo">Input file information</param>
+          public ExtractRequest(FileInfo fileInfo)             
           {
-              this.filePath = filePath;
+              this.fileInfo = fileInfo;
           }
           
           /// <summary>
-          /// Document path in storage
+          /// Input file information
           /// </summary>  
-          public string filePath { get; set; }
+          public FileInfo fileInfo { get; set; }
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="PostAnnotationsRequest.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+// <copyright company="Aspose Pty Ltd" file="RemoveAnnotationsRequest.cs">
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -435,36 +401,29 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
     using GroupDocs.Annotation.Cloud.Sdk.Model; 
 
     /// <summary>
-    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.PostAnnotations" /> operation.
+    /// Request model for <see cref="GroupDocs.Annotation.Cloud.Sdk.Api.AnnotateApi.RemoveAnnotations" /> operation.
     /// </summary>  
-    public class PostAnnotationsRequest  
+    public class RemoveAnnotationsRequest  
     {
           /// <summary>
-          /// Initializes a new instance of the <see cref="PostAnnotationsRequest"/> class.
+          /// Initializes a new instance of the <see cref="RemoveAnnotationsRequest"/> class.
           /// </summary>        
-          public PostAnnotationsRequest()
+          public RemoveAnnotationsRequest()
           {
           }
 
           /// <summary>
-          /// Initializes a new instance of the <see cref="PostAnnotationsRequest"/> class.
+          /// Initializes a new instance of the <see cref="RemoveAnnotationsRequest"/> class.
           /// </summary>
-          /// <param name="filePath">Document path in storage</param>
-          /// <param name="annotations">Array of annotation descriptions</param>
-          public PostAnnotationsRequest(string filePath, List<AnnotationInfo> annotations)             
+          /// <param name="options">Remove annotations options</param>
+          public RemoveAnnotationsRequest(RemoveOptions options)             
           {
-              this.filePath = filePath;
-              this.annotations = annotations;
+              this.options = options;
           }
           
           /// <summary>
-          /// Document path in storage
+          /// Remove annotations options
           /// </summary>  
-          public string filePath { get; set; }
-          
-          /// <summary>
-          /// Array of annotation descriptions
-          /// </summary>  
-          public List<AnnotationInfo> annotations { get; set; }
+          public RemoveOptions options { get; set; }
     }
 }

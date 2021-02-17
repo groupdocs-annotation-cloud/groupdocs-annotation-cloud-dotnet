@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="PageImages.cs">
+// <copyright company="Aspose Pty Ltd" file="AnnotateOptions.cs">
 //  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,19 +34,39 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Represents collection of document pages image representations
+    /// Defines options for annotating documents
     /// </summary>  
-    public class PageImages 
+    public class AnnotateOptions 
     {                       
         /// <summary>
-        /// The total count of page image entries in collection
+        /// Input document description
         /// </summary>  
-        public int? TotalCount { get; set; }
+        public FileInfo FileInfo { get; set; }
 
         /// <summary>
-        /// The collection of pages image representations
+        /// List of annotations to add to the document
         /// </summary>  
-        public List<PageImage> Entries { get; set; }
+        public List<AnnotationInfo> Annotations { get; set; }
+
+        /// <summary>
+        /// First page number when saving page range
+        /// </summary>  
+        public int? FirstPage { get; set; }
+
+        /// <summary>
+        /// Last page number when saving page range
+        /// </summary>  
+        public int? LastPage { get; set; }
+
+        /// <summary>
+        /// Indicates whether to save only annotated pages
+        /// </summary>  
+        public bool? OnlyAnnotatedPages { get; set; }
+
+        /// <summary>
+        /// Path to output document in the cloud storage. Required for Add method. Not required if Annotate (with file result) method used.
+        /// </summary>  
+        public string OutputPath { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -55,9 +75,13 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class PageImages {\n");
-          sb.Append("  TotalCount: ").Append(this.TotalCount).Append("\n");
-          sb.Append("  Entries: ").Append(this.Entries).Append("\n");
+          sb.Append("class AnnotateOptions {\n");
+          sb.Append("  FileInfo: ").Append(this.FileInfo).Append("\n");
+          sb.Append("  Annotations: ").Append(this.Annotations).Append("\n");
+          sb.Append("  FirstPage: ").Append(this.FirstPage).Append("\n");
+          sb.Append("  LastPage: ").Append(this.LastPage).Append("\n");
+          sb.Append("  OnlyAnnotatedPages: ").Append(this.OnlyAnnotatedPages).Append("\n");
+          sb.Append("  OutputPath: ").Append(this.OutputPath).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

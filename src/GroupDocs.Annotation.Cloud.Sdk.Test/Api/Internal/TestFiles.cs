@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="TestFiles.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -71,6 +71,18 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api.Internal
         public static readonly TestFile TenPagesWords = new TestFile("ten-pages.docx", "words\\");
         #endregion
 
+        #region Input (With annotations)
+        public static readonly TestFile InputWords = new TestFile("input.docx", "input\\");
+        public static readonly TestFile InputCells = new TestFile("input.xlsx", "input\\");
+        public static readonly TestFile InputEmail = new TestFile("input.eml", "input\\");
+        public static readonly TestFile InputHtml = new TestFile("input.html", "input\\");
+        public static readonly TestFile InputPdf = new TestFile("input.pdf", "input\\");
+        public static readonly TestFile InputImage = new TestFile("input.png", "input\\");
+        public static readonly TestFile InputPresentation = new TestFile("input.pptx", "input\\");
+        public static readonly TestFile InputDiagram = new TestFile("input.vsdx", "input\\");
+
+        #endregion
+
         public static IEnumerable<TestFile> TestFilesList
         {
             get
@@ -93,6 +105,14 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api.Internal
                 yield return OnePageWords;
                 yield return OnePagePasswordWords;
                 yield return TenPagesWords;
+                yield return InputWords;
+                yield return InputCells;
+                yield return InputEmail;
+                yield return InputHtml;
+                yield return InputPdf;
+                yield return InputImage;
+                yield return InputPresentation;
+                yield return InputDiagram;
             }
         }
     }

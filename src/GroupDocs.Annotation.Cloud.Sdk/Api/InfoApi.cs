@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="InfoApi.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -72,10 +72,10 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
         /// <returns><see cref="DocumentInfo"/></returns>
         public DocumentInfo GetInfo(GetInfoRequest request)
         {
-            // verify the required parameter 'filePath' is set
-            if (request.filePath == null) 
+            // verify the required parameter 'fileInfo' is set
+            if (request.fileInfo == null) 
             {
-                throw new ApiException(400, "Missing required parameter 'filePath' when calling GetInfo");
+                throw new ApiException(400, "Missing required parameter 'fileInfo' when calling GetInfo");
             }
 
             // create path and map variables
@@ -84,13 +84,11 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filePath", request.filePath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.password);
-            
+            var postBody = SerializationHelper.Serialize(request.fileInfo); // http body (model) parameter
             var response = this.apiInvoker.InvokeApi(
                 resourcePath, 
-                "GET", 
-                null, 
+                "POST", 
+                postBody, 
                 null, 
                 null);
 
@@ -133,7 +131,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetInfoRequest.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -176,22 +174,15 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
           /// <summary>
           /// Initializes a new instance of the <see cref="GetInfoRequest"/> class.
           /// </summary>
-          /// <param name="filePath">Document path in storage</param>
-          /// <param name="password">Source document password</param>
-          public GetInfoRequest(string filePath, string password = null)             
+          /// <param name="fileInfo">Document path in storage and password</param>
+          public GetInfoRequest(FileInfo fileInfo)             
           {
-              this.filePath = filePath;
-              this.password = password;
+              this.fileInfo = fileInfo;
           }
           
           /// <summary>
-          /// Document path in storage
+          /// Document path in storage and password
           /// </summary>  
-          public string filePath { get; set; }
-          
-          /// <summary>
-          /// Source document password
-          /// </summary>  
-          public string password { get; set; }
+          public FileInfo fileInfo { get; set; }
     }
 }

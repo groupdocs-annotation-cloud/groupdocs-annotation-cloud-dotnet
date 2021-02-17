@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,7 +48,12 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TestCase(@"words\one-page-password.docx", "password")]
         public void TestGetInfo(string filePath, string password = null)
         {
-            GetInfoRequest request = new GetInfoRequest(filePath, password);
+            var fileInfo = new Model.FileInfo
+            {
+                FilePath = filePath,
+                Password = password
+            };
+            var request = new GetInfoRequest(fileInfo);
             var info = InfoApi.GetInfo(request);
             Assert.NotNull(info);
             Assert.AreEqual(filePath, info.Path);

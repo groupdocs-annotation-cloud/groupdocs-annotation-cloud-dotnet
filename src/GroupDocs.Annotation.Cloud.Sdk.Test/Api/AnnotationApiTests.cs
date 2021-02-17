@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,27 +34,20 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
 {
     public class AnnotationApiTests : BaseApiTest
     {
-        [TestCase(@"cells\one-page.xlsx")]
-        [TestCase(@"diagram\one-page.vsd")]
-        [TestCase(@"email\one-page.emlx")]
-        [TestCase(@"images\one-page.png")]
-        [TestCase(@"pdf\one-page.pdf")]
-        [TestCase(@"slides\one-page.pptx")]
-        [TestCase(@"words\one-page.docx")]
-        [TestCase(@"cells\ten-pages.xlsx")]
-        [TestCase(@"diagram\ten-pages.vsd")]
-        [TestCase(@"pdf\ten-pages.pdf")]
-        [TestCase(@"slides\ten-pages.pptx")]
-        [TestCase(@"words\ten-pages.docx")]
-        [TestCase(@"cells\one-page-password.xlsx")]
-        [TestCase(@"pdf\one-page-password.pdf")]
-        [TestCase(@"slides\one-page-password.pptx")]
-        [TestCase(@"words\one-page-password.docx")]
-        [Order(1)]
-        public void TestGetImport(string filePath)
+        [TestCase(@"input\input.docx")]
+        [TestCase(@"input\input.xlsx")]
+        [TestCase(@"input\input.eml")]
+        [TestCase(@"input\input.html")]
+        [TestCase(@"input\input.pdf")]
+        [TestCase(@"input\input.png")]
+        [TestCase(@"input\input.pptx")]
+        [TestCase(@"input\input.vsdx")]
+        public void TestExtract(string filePath)
         {
-            var annotations = AnnotateApi.GetImport(new GetImportRequest(filePath));
+            var fileInfo = new Model.FileInfo {FilePath = filePath};
+            var annotations = AnnotateApi.Extract(new ExtractRequest(fileInfo));
             Assert.AreNotEqual(null, annotations);
+            Assert.Greater(annotations.Count, 0);
             Assert.IsInstanceOf(typeof(AnnotationInfo), annotations[0]);
         }
 
@@ -74,35 +67,46 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TestCase(@"pdf\one-page-password.pdf", null, false, -1, -1, "password")]
         [TestCase(@"slides\one-page-password.pptx", null, false, -1, -1, "password")]
         [TestCase(@"words\one-page-password.docx", null, false, -1, -1, "password")]
-        [Order(2)]
-        public void TestGetExport(string filePath, string annotationTypes = null, bool annotatedPages = false, int firstPage = -1, int lastPage = -1, string password = null)
+        public void TestAddDirect(string filePath, string annotationTypes = null, bool annotatedPages = false, int firstPage = -1, int lastPage = -1, string password = null)
         {
-            GetExportRequest request = new GetExportRequest(filePath, annotationTypes, annotatedPages, firstPage, lastPage, password);
-            var result = AnnotateApi.GetExport(request);
+            var fileInfo = new Model.FileInfo
+            {
+                FilePath = filePath,
+                Password = password
+            };
+            var options = new AnnotateOptions
+            {
+                FileInfo = fileInfo,
+                Annotations = GetAnnotations(),
+                FirstPage = firstPage,
+                LastPage = lastPage,
+                OnlyAnnotatedPages = annotatedPages
+            };
+            var request = new AnnotateDirectRequest(options);
+            var result = AnnotateApi.AnnotateDirect(request);
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(Stream), result);
         }
 
-        [TestCase(@"cells\one-page.xlsx")]
-        [TestCase(@"diagram\one-page.vsd")]
-        [TestCase(@"email\one-page.emlx")]
-        [TestCase(@"images\one-page.png")]
-        [TestCase(@"pdf\one-page.pdf")]
-        [TestCase(@"slides\one-page.pptx")]
-        [TestCase(@"words\one-page.docx")]
-        [TestCase(@"cells\ten-pages.xlsx")]
-        [TestCase(@"diagram\ten-pages.vsd")]
-        [TestCase(@"pdf\ten-pages.pdf")]
-        [TestCase(@"slides\ten-pages.pptx")]
-        [TestCase(@"words\ten-pages.docx")]
-        [TestCase(@"cells\one-page-password.xlsx")]
-        [TestCase(@"pdf\one-page-password.pdf")]
-        [TestCase(@"slides\one-page-password.pptx")]
-        [TestCase(@"words\one-page-password.docx")]
-        [Order(3)]
-        public void TestDeleteAnnotations(string filePath)
+        [TestCase(@"input\input.docx")]
+        [TestCase(@"input\input.xlsx")]
+        [TestCase(@"input\input.eml")]
+        [TestCase(@"input\input.html")]
+        [TestCase(@"input\input.pdf")]
+        [TestCase(@"input\input.png")]
+        [TestCase(@"input\input.pptx")]
+        [TestCase(@"input\input.vsdx")]
+        public void TestRemoveAnnotations(string filePath)
         {
-            AnnotateApi.DeleteAnnotations(new DeleteAnnotationsRequest(filePath));
+            var options = new RemoveOptions
+            {
+                FileInfo = new Model.FileInfo {FilePath = filePath},
+                AnnotationIds = new List<int?> {1, 2, 3},
+                OutputPath = $"{DefaultOutputPath}/{Path.GetFileName(filePath)}"
+            };
+            var result = AnnotateApi.RemoveAnnotations(new RemoveAnnotationsRequest(options));
+            Assert.NotNull(result);
+            Assert.IsNotEmpty(result.Href);
         }
 
         [TestCase(@"cells\one-page.xlsx")]
@@ -112,15 +116,27 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TestCase(@"pdf\one-page.pdf")]
         [TestCase(@"slides\one-page.pptx")]
         [TestCase(@"words\one-page.docx")]
-        [TestCase(@"cells\one-page-password.xlsx")]
-        [TestCase(@"pdf\one-page-password.pdf")]
-        [TestCase(@"slides\one-page-password.pptx")]
-        [TestCase(@"words\one-page-password.docx")]
-        [Order(0)]
-        public void TestPostAnnotations(string filePath)
+        [TestCase(@"cells\one-page-password.xlsx", "password")]
+        [TestCase(@"pdf\one-page-password.pdf", "password")]
+        [TestCase(@"slides\one-page-password.pptx", "password")]
+        [TestCase(@"words\one-page-password.docx", "password")]
+        public void TestAddAnnotations(string filePath, string password = null)
         {
-            var request = new PostAnnotationsRequest(filePath, GetAnnotationsTestBody());
-            AnnotateApi.PostAnnotations(request);
+            var fileInfo = new Model.FileInfo
+            {
+                FilePath = filePath,
+                Password = password
+            };
+            var options = new AnnotateOptions
+            {
+                FileInfo = fileInfo,
+                Annotations = GetAnnotations(),
+                OutputPath = $"{DefaultOutputPath}/{Path.GetFileName(filePath)}"
+            };
+            var request = new AnnotateRequest(options);
+            var result = AnnotateApi.Annotate(request);
+            Assert.IsNotNull(result);
+            Assert.IsNotEmpty(result.Href);
         }
 
         [TestCase(@"cells\ten-pages.xlsx")]
@@ -129,13 +145,25 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
         [TestCase(@"slides\ten-pages.pptx")]
         [TestCase(@"words\ten-pages.docx")]
         [Order(0)]
-        public void TestPostAnnotationsManyPages(string filePath)
+        public void TestAddAnnotationsManyPages(string filePath)
         {
-            var request = new PostAnnotationsRequest(filePath, GetAnnotationsTestBodyManyPages());
-            AnnotateApi.PostAnnotations(request);
+            var fileInfo = new Model.FileInfo
+            {
+                FilePath = filePath
+            };
+            var options = new AnnotateOptions
+            {
+                FileInfo = fileInfo,
+                Annotations = GetAnnotationsManyPages(),
+                OutputPath = $"{DefaultOutputPath}/{Path.GetFileName(filePath)}"
+            };
+            var request = new AnnotateRequest(options);
+            var result = AnnotateApi.Annotate(request);
+            Assert.IsNotNull(result);
+            Assert.IsNotEmpty(result.Href);
         }
 
-        private static List<AnnotationInfo> GetAnnotationsTestBody()
+        private static List<AnnotationInfo> GetAnnotations()
         {
             AnnotationInfo[] annotations = {
                 new AnnotationInfo
@@ -153,7 +181,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
             return annotations.ToList();
         }
 
-        private List<AnnotationInfo> GetAnnotationsTestBodyManyPages()
+        private List<AnnotationInfo> GetAnnotationsManyPages()
         {
             AnnotationInfo[] annotations = {
                 new AnnotationInfo
