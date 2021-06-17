@@ -889,6 +889,11 @@
             Path to output document in the cloud storage. Required for Add method. Not required if Annotate (with file result) method used.
             </summary>  
         </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.FontsPath">
+            <summary>
+            The path to directory containing custom fonts in storage
+            </summary>  
+        </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotateOptions.ToString">
             <summary>
             Get the string presentation of the object
@@ -1213,6 +1218,11 @@
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.Angle">
             <summary>
             Gets or sets the watermark annotation's rotation angle
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.ZIndex">
+            <summary>
+            Gets or sets z-index. Default value is 0 The z-index property specifies the stack order of an element.
             </summary>  
         </member>
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.Url">
@@ -1741,9 +1751,24 @@
             Preview image height. Not required. Default width used if not specified or 0.
             </summary>  
         </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.Resolution">
+            <summary>
+            Gets or sets the resolution for generated images, in dots per inch. The default value is 96.
+            </summary>  
+        </member>
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.RenderComments">
             <summary>
             Render document comments. Default value is 'false'.
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.RenderAnnotations">
+            <summary>
+            The property that controls whether annotations will be generated on the preview. Default State - true.
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.FontsPath">
+            <summary>
+            The path to directory containing custom fonts in storage
             </summary>  
         </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.PreviewOptions.ToString">

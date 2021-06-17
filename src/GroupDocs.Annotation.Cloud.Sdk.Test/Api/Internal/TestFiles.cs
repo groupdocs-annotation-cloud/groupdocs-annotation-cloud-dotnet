@@ -83,6 +83,8 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api.Internal
 
         #endregion
 
+        public static readonly TestFile NotExist = new TestFile("NotExist.docx", "some-folder/");
+
         public static IEnumerable<TestFile> TestFilesList
         {
             get

@@ -69,6 +69,11 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public string OutputPath { get; set; }
 
         /// <summary>
+        /// The path to directory containing custom fonts in storage
+        /// </summary>  
+        public string FontsPath { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +87,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
           sb.Append("  LastPage: ").Append(this.LastPage).Append("\n");
           sb.Append("  OnlyAnnotatedPages: ").Append(this.OnlyAnnotatedPages).Append("\n");
           sb.Append("  OutputPath: ").Append(this.OutputPath).Append("\n");
+          sb.Append("  FontsPath: ").Append(this.FontsPath).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

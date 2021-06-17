@@ -87,9 +87,24 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public int? Height { get; set; }
 
         /// <summary>
+        /// Gets or sets the resolution for generated images, in dots per inch. The default value is 96.
+        /// </summary>  
+        public int? Resolution { get; set; }
+
+        /// <summary>
         /// Render document comments. Default value is 'false'.
         /// </summary>  
         public bool? RenderComments { get; set; }
+
+        /// <summary>
+        /// The property that controls whether annotations will be generated on the preview. Default State - true.
+        /// </summary>  
+        public bool? RenderAnnotations { get; set; }
+
+        /// <summary>
+        /// The path to directory containing custom fonts in storage
+        /// </summary>  
+        public string FontsPath { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -104,7 +119,10 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
           sb.Append("  PageNumbers: ").Append(this.PageNumbers).Append("\n");
           sb.Append("  Width: ").Append(this.Width).Append("\n");
           sb.Append("  Height: ").Append(this.Height).Append("\n");
+          sb.Append("  Resolution: ").Append(this.Resolution).Append("\n");
           sb.Append("  RenderComments: ").Append(this.RenderComments).Append("\n");
+          sb.Append("  RenderAnnotations: ").Append(this.RenderAnnotations).Append("\n");
+          sb.Append("  FontsPath: ").Append(this.FontsPath).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

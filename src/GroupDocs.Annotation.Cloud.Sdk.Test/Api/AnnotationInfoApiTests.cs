@@ -23,13 +23,47 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using GroupDocs.Annotation.Cloud.Sdk.Client;
 using GroupDocs.Annotation.Cloud.Sdk.Model.Requests;
+using GroupDocs.Annotation.Cloud.Sdk.Test.Api.Internal;
 using NUnit.Framework;
 
 namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
 {
     public class AnnotationInfoApiTests : BaseApiTest
     {
+        [Test]
+        public void TestGetInfoReturnsMissingFileInfo()
+        {
+            // Arrange
+            var request = new GetInfoRequest();
+
+            // Act & Assert    
+            var ex = Assert.Throws<ApiException>(() => {
+                InfoApi.GetInfo(request);
+            });
+
+            Assert.AreEqual("Missing required parameter 'fileInfo' when calling GetInfo", ex.Message);
+        }
+
+        [Test]
+        public void TestGetInfoReturnsFileNotFound()
+        {
+            // Arrange
+            var fileInfo = new Model.FileInfo
+            {
+                FilePath = TestFiles.NotExist.FullName,
+                Password = TestFiles.NotExist.Password
+            };
+            var request = new GetInfoRequest(fileInfo);
+
+            // Act & Assert
+            var ex = Assert.Throws<ApiException>(() => {
+                InfoApi.GetInfo(request);
+            });
+            Assert.AreEqual("Specified file not found", ex.Message);
+        }
+
         [TestCase(@"cells\one-page.xlsx")]
         [TestCase(@"diagram\one-page.vsd")]
         [TestCase(@"email\one-page.emlx")]

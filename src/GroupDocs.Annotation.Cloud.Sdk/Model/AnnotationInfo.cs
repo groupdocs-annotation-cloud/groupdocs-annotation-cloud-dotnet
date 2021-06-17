@@ -351,6 +351,11 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public double? Angle { get; set; }
 
         /// <summary>
+        /// Gets or sets z-index. Default value is 0 The z-index property specifies the stack order of an element.
+        /// </summary>  
+        public int? ZIndex { get; set; }
+
+        /// <summary>
         /// Gets or sets annotation link url
         /// </summary>  
         public string Url { get; set; }
@@ -393,6 +398,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
           sb.Append("  FontSize: ").Append(this.FontSize).Append("\n");
           sb.Append("  Opacity: ").Append(this.Opacity).Append("\n");
           sb.Append("  Angle: ").Append(this.Angle).Append("\n");
+          sb.Append("  ZIndex: ").Append(this.ZIndex).Append("\n");
           sb.Append("  Url: ").Append(this.Url).Append("\n");
           sb.Append("  ImagePath: ").Append(this.ImagePath).Append("\n");
           sb.Append("}\n");
