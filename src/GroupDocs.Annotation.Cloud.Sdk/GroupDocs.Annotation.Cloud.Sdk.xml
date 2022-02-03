@@ -174,6 +174,30 @@
             </summary>
             <returns><see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.FormatsResult"/></returns>
         </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Api.LicenseApi">
+            <summary>
+            GroupDocs.Annotation.Cloud.Sdk API.
+            </summary>
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.LicenseApi.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Api.LicenseApi"/> class.
+            </summary>
+            <param name="appSid">Application identifier (App SID)</param>
+            <param name="appKey">Application private key (App Key)</param>
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.LicenseApi.#ctor(GroupDocs.Annotation.Cloud.Sdk.Client.Configuration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GroupDocs.Annotation.Cloud.Sdk.Api.LicenseApi"/> class.
+            </summary>    
+            <param name="configuration">Configuration settings</param>
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Api.LicenseApi.GetConsumptionCredit">
+            <summary>
+            Get license consumption 
+            </summary>
+            <returns><see cref="T:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult"/></returns>
+        </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Api.PreviewApi">
             <summary>
             GroupDocs.Annotation.Cloud.Sdk API.
@@ -1059,6 +1083,11 @@
             Enum Image for "Image"
             </summary>            
         </member>
+        <member name="F:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.TypeEnum.TextSquiggly">
+            <summary>
+            Enum TextSquiggly for "TextSquiggly"
+            </summary>            
+        </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.PenStyleEnum">
             <summary>
             Gets or sets the annotation&#39;s pen style
@@ -1200,6 +1229,11 @@
             Gets or sets the annotation's background color 
             </summary>  
         </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.SquigglyColor">
+            <summary>
+            Gets or sets annotation color
+            </summary>  
+        </member>
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.FontFamily">
             <summary>
             Gets or sets the annotation's font family
@@ -1233,6 +1267,11 @@
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.ImagePath">
             <summary>
             Gets or sets image file path in cloud storage, for Image annotations
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.AutoScale">
+            <summary>
+            Sets auto scale for watermark annotation
             </summary>  
         </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationInfo.ToString">
@@ -1282,6 +1321,27 @@
             </summary>  
         </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.AnnotationReplyInfo.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult">
+            <summary>
+            Metered license consumption information
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult.Credit">
+            <summary>
+            Amount of used credits
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult.Quantity">
+            <summary>
+            Amount of MBs processed
+            </summary>  
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult.ToString">
             <summary>
             Get the string presentation of the object
             </summary>

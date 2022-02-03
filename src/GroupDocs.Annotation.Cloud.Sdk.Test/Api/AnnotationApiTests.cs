@@ -53,7 +53,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
 
         [TestCase(@"cells\one-page.xlsx")]
         [TestCase(@"diagram\one-page.vsd")]
-        [TestCase(@"email\one-page.emlx")]
         [TestCase(@"images\one-page.png")]
         [TestCase(@"pdf\one-page.pdf")]
         [TestCase(@"slides\one-page.pptx")]
@@ -111,7 +110,6 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Test.Api
 
         [TestCase(@"cells\one-page.xlsx")]
         [TestCase(@"diagram\one-page.vsd")]
-        [TestCase(@"email\one-page.emlx")]
         [TestCase(@"images\one-page.png")]
         [TestCase(@"pdf\one-page.pdf")]
         [TestCase(@"slides\one-page.pptx")]

@@ -184,7 +184,12 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
             /// <summary>
             /// Enum Image for "Image"
             /// </summary>            
-            Image            
+            Image,
+            
+            /// <summary>
+            /// Enum TextSquiggly for "TextSquiggly"
+            /// </summary>            
+            TextSquiggly            
         }
 
         /// <summary>
@@ -331,6 +336,11 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public int? BackgroundColor { get; set; }
 
         /// <summary>
+        /// Gets or sets annotation color
+        /// </summary>  
+        public int? SquigglyColor { get; set; }
+
+        /// <summary>
         /// Gets or sets the annotation's font family
         /// </summary>  
         public string FontFamily { get; set; }
@@ -366,6 +376,11 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public string ImagePath { get; set; }
 
         /// <summary>
+        /// Sets auto scale for watermark annotation
+        /// </summary>  
+        public bool? AutoScale { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -394,6 +409,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
           sb.Append("  PenWidth: ").Append(this.PenWidth).Append("\n");
           sb.Append("  PenStyle: ").Append(this.PenStyle).Append("\n");
           sb.Append("  BackgroundColor: ").Append(this.BackgroundColor).Append("\n");
+          sb.Append("  SquigglyColor: ").Append(this.SquigglyColor).Append("\n");
           sb.Append("  FontFamily: ").Append(this.FontFamily).Append("\n");
           sb.Append("  FontSize: ").Append(this.FontSize).Append("\n");
           sb.Append("  Opacity: ").Append(this.Opacity).Append("\n");
@@ -401,6 +417,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
           sb.Append("  ZIndex: ").Append(this.ZIndex).Append("\n");
           sb.Append("  Url: ").Append(this.Url).Append("\n");
           sb.Append("  ImagePath: ").Append(this.ImagePath).Append("\n");
+          sb.Append("  AutoScale: ").Append(this.AutoScale).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }
