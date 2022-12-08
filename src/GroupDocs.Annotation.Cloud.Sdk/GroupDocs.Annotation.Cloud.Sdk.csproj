@@ -18,7 +18,7 @@
     <DocumentationFile>GroupDocs.Annotation.Cloud.Sdk.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net20'">
     <Reference Include="System.Web" />
