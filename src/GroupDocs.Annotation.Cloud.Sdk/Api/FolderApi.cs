@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="FolderApi.cs">
-//  Copyright (c) 2003-2021 Aspose Pty Ltd
+//  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -238,7 +238,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Api
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="CopyFolderRequest.cs">
-//  Copyright (c) 2003-2021 Aspose Pty Ltd
+//  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -316,7 +316,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="CreateFolderRequest.cs">
-//  Copyright (c) 2003-2021 Aspose Pty Ltd
+//  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -380,7 +380,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DeleteFolderRequest.cs">
-//  Copyright (c) 2003-2021 Aspose Pty Ltd
+//  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -451,7 +451,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="GetFilesListRequest.cs">
-//  Copyright (c) 2003-2021 Aspose Pty Ltd
+//  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -515,7 +515,7 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="MoveFolderRequest.cs">
-//  Copyright (c) 2003-2021 Aspose Pty Ltd
+//  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
