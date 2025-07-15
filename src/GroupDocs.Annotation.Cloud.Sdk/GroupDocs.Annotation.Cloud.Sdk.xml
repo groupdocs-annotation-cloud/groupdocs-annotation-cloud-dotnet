@@ -1326,6 +1326,63 @@
             </summary>
             <returns>String presentation of the object</returns>
         </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.ApiError">
+            <summary>
+            
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ApiError.Code">
+            <summary>
+            Gets or sets Code
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ApiError.Message">
+            <summary>
+            Gets or sets Message
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ApiError.Description">
+            <summary>
+            Gets or sets Description
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ApiError.DateTime">
+            <summary>
+            Gets or sets DateTime
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ApiError.InnerError">
+            <summary>
+            Gets or sets InnerError
+            </summary>  
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.ApiError.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.ApiErrorResponse">
+            <summary>
+            
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ApiErrorResponse.RequestId">
+            <summary>
+            Gets or sets RequestId
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ApiErrorResponse.Error">
+            <summary>
+            Gets or sets Error
+            </summary>  
+        </member>
+        <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.ApiErrorResponse.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
         <member name="T:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult">
             <summary>
             Metered license consumption information
@@ -1339,6 +1396,11 @@
         <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult.Quantity">
             <summary>
             Amount of MBs processed
+            </summary>  
+        </member>
+        <member name="P:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult.BilledApiCalls">
+            <summary>
+            Billed API calls number
             </summary>  
         </member>
         <member name="M:GroupDocs.Annotation.Cloud.Sdk.Model.ConsumptionResult.ToString">

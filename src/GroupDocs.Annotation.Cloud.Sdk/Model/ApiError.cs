@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="FileInfo.cs">
+// <copyright company="Aspose Pty Ltd" file="ApiError.cs">
 //  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,29 +34,34 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// File info
+    /// 
     /// </summary>  
-    public class FileInfo 
+    public class ApiError 
     {                       
         /// <summary>
-        /// File path in storage
+        /// Gets or sets Code
         /// </summary>  
-        public string FilePath { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
-        /// Storage name
+        /// Gets or sets Message
         /// </summary>  
-        public string StorageName { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
-        /// Version ID
+        /// Gets or sets Description
         /// </summary>  
-        public string VersionId { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
-        /// Password to open file
+        /// Gets or sets DateTime
         /// </summary>  
-        public string Password { get; set; }
+        public DateTime? DateTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets InnerError
+        /// </summary>  
+        public ApiError InnerError { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -65,11 +70,12 @@ namespace GroupDocs.Annotation.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class FileInfo {\n");
-          sb.Append("  FilePath: ").Append(this.FilePath).Append("\n");
-          sb.Append("  StorageName: ").Append(this.StorageName).Append("\n");
-          sb.Append("  VersionId: ").Append(this.VersionId).Append("\n");
-          sb.Append("  Password: ").Append(this.Password).Append("\n");
+          sb.Append("class ApiError {\n");
+          sb.Append("  Code: ").Append(this.Code).Append("\n");
+          sb.Append("  Message: ").Append(this.Message).Append("\n");
+          sb.Append("  Description: ").Append(this.Description).Append("\n");
+          sb.Append("  DateTime: ").Append(this.DateTime).Append("\n");
+          sb.Append("  InnerError: ").Append(this.InnerError).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }
